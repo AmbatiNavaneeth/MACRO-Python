@@ -1,0 +1,306 @@
+SECTION 3: Exception Handling & Modules (Concepts 21–30)
+Concepts
+21. What is exception handling?
+22. What is try-except?
+23. What is the finally block?
+24. What is a module?
+25. What is a package?
+26. How do you import modules?
+27. What are built-in modules?
+28. What is the with statement?
+29. What are comments?
+30. How do you write multi-line comments?
+
+21. What is Exception Handling?
+When an error occurs during program execution, Python normally stops the program.
+Exception handling allows us to handle runtimeerrors and continue execution instead of crashing the program.
+It improves the reliability and user-friendliness of an application.
+num = int(input("Enter a number: "))
+print(num) 
+try:
+    num = int(input("Enter a number: "))
+    print(num)
+except ValueError:
+    print("Please enter a valid number")
+
+try-the block which has the risky code
+except - handles if any error occur in try block
+finally - this block willl be executed anyways
+
+22. What is try-except?
+try contains code that may cause an error.
+except contains code that runs if an error occurs.
+Example
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+23. What is finally?
+The finally block always executes whether an exception occurs or not.
+try:
+    print(10 / 2)
+except:
+    print("Error")
+finally:
+    print("Execution completed")
+
+Commonly used for:
+Closing files - Closing database connections - Releasing resources
+
+24. What is a Module?
+A module is simply a Python file containing functions, variables, and classes that can be reused.
+Example file:
+# calculator.py
+def add(a, b):
+    return a + b
+    
+Use it:
+import calculator
+print(calculator.add(10, 20))
+
+25. What is a Package?
+A package is a directory containing multiple modules that helps organize Python code.
+project/
+│
+├── math_utils/
+│   ├── add.py
+│   ├── subtract.py
+│   └── __init__.py
+
+math_utils is a package here
+
+26. How do you Import Modules?
+You import a module in Python by using the import keyword followed by the name of the module.
+example: import math
+Why import modules?
+To reuse already written code instead of rewriting functionality.
+
+27. What are Built-in Modules?
+Built-in modules are modules that come pre-installed with Python and provide ready-made functionality.
+examples:
+math-mathematical operation
+random-The Python random module is a built-in library used to generate pseudo-random numbers and perform randomized operations like shuffling data or picking random items from a collection.
+datetime - used to manipulate dates, times, and time intervals.
+os -  provides a portable way to interact with the underlying operating system
+sys - a built-in library that provides variables and functions used to interact directly with the Python interpreter and manage its runtime environment. 
+
+28. What is the with Statement?
+The with statement automatically manages resources and ensures they are properly closed after use.
+if any error occurs the pyhton files remains open so using with statemrnt the file will be automatically closed
+
+file = open("data.txt", "r")
+data = file.read()
+file.close()
+With with
+with open("data.txt", "r") as file:
+    data = file.read()
+
+29. What are Comments?
+Comments are ignored by Python and used to explain code
+Comments improve code readability and help developers understand the logic.
+# - used
+
+30. How do you write Multi-line Comments?
+Python doesn't have a dedicated multi-line comment syntax.
+Usually we use:
+""" or ' ' ' 
+This is a
+multi-line comment
+""" or ' ' '
+
+Task 3: Safe File Reader
+Objective: Read files safely with proper error handling.
+Input: File name
+Expected Output: File contents or user-friendly error message
+Mandatory Requirements:
+● Use with statement
+● Handle FileNotFoundError
+● Use finally
+
+file_name = input("Enter file name: ")
+try:
+    with open(file_name, "r") as file:
+        data = file.read()
+        print("File found:", data)
+        
+except FileNotFoundError:
+    print("File not found")
+
+finally:
+    print("File operation completed...")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
