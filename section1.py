@@ -1,0 +1,291 @@
+SECTION 1: Python Fundamentals (Concepts 1–10)
+Concepts
+1. What is Python?
+2. What are the key features of Python?
+3. What is the difference between Python 2 and Python 3?
+4. Why is Python called an interpreted language?
+5. What are the major applications of Python?
+6. What is PEP 8?
+7. What are Python’s built-in data types?
+8. What is the difference between a list and a tuple?
+9. What is a dictionary in Python?
+10. What is a set?
+
+1. What is Python?
+Python is a high-level, interpreted, object-oriented, general-purpose programming language known for its simple and readable syntax and used for web development, automation, data science, AI/ML, and scripting.
+
+2. What are the key features of Python?
+Easy to learn, Readable syntax, Interpreted language,Object-oriented,Platform independent,Large standard library, Open source
+
+3. What is the difference between Python 2 and Python 3?
+Python 3 is the latest version with better Unicode support, improved syntax, and ongoing support, while Python 2 is discontinued.
+
+4. Why is Python called an interpreted language?
+Python code is executed line by line by the Python interpreter rather than being compiled completely before execution.
+
+5. What are the major applications of Python?
+Web Development
+Data Science
+Machine Learning
+Artificial Intelligence
+Automation
+Desktop Applications
+Cybersecurity
+
+6. What is PEP 8?
+PEP 8 is the official style guide for writing Python code that improves readability and consistency in Python code.
+It defines:
+Variable naming conventions, Indentation rules, Spacing, Code formatting
+
+7. What are Python Built-in Data Types?
+Python has several built-in data types that are used to store different kinds of information, classified into categories based on their behavior and characteristics
+numeric - int,float,complex
+sequence - list,tuple,string
+mapping - dict
+set - set,frozenset
+boolean - bool
+
+8. Difference Between List and Tuple
+list is a mutable datatyoe whereAS TUuple is immutable
+list uses  [] and tuple uses ()
+Can modify data and cannot modify
+
+9. What is a Dictionary?
+A dict is a mutable and ordered datatype which stores the data as key value pairs  dict() or {key:value}
+key-immutable value-mutable
+key should be uniq , val can be same for all keys
+
+10. What is a Set?
+A set is an unordered collection of unique elements it stores unique values and is commonly used to remove duplicates. set() or {}
+
+Task 1: Student Data Management System
+Objective: Build a program to store and manage student academic data.
+Input:
+● Student name
+● Roll number
+● List of subjects (may contain duplicates)
+● Marks for each subject
+Expected Output:
+● Student details printed clearly
+● Duplicate subjects removed
+● Subjects mapped with marks
+Mandatory Requirements:
+● Use list, set, and dictionary
+● Follow PEP 8 naming conventions
+
+student_name=input("Enter  name: ")
+roll_number=int(input("Enter roll number: "))
+subjects=input("Enter subjects seperated by spaces: ").split()
+
+#to remove duplicate
+unique_subjects=list(set(subjects))
+
+subject_marks={}
+for subject in subjects:
+    marks=int(input(f"enter marks for {subject}: "))
+    subject_marks[subject]=marks
+
+print("\n --student detail--")
+print("Name: ",student_name)
+print("Rollnumber: ",roll_number)
+
+print("\n --student subject and marks--")
+for subject,marks in subject_marks.items():
+    print(subject ,":", marks)
+
+output:
+Enter  name: nav
+Enter roll number: 09
+Enter subjects seperated by spaces: python java java go rust python
+enter marks for python: 90
+enter marks for rust: 80
+enter marks for java: 80
+enter marks for go: 78
+
+ --student detail--
+Name:  nav
+Rollnumber:  9
+
+ --student subject and marks--
+python : 90
+rust : 80
+java : 80
+go : 78
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
