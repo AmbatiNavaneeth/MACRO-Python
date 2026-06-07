@@ -10,3 +10,298 @@ Concepts
 18. What are *args and **kwargs?
 19. What is a lambda function?
 20. What is recursion?
+
+11. How do you create variables in Python?
+Python doesn't require a datatype declaration.
+python is a dynamically typed language means need not to be explicity add the type of data
+Variables are created by assigning values using the assignment operator (=)
+
+12. How do you take user input?
+In Python, use the built-in input() function. It captures everything as a string. You must explicitly cast the value if you need a number.
+n=input("enter input") - strings default
+n=int(input("enter input")) - integer
+
+13. What is type casting?
+converting onedata type to another 
+list() tuple() set() str()
+
+14. What are built-in functions?
+the functions which already provided by python
+len() max() min() input() 
+
+15. Difference Between is and ==
+is used to chech the two objects memory location where == used to check the data inside the ojbect
+a = [1, 2]
+b = [1, 2]
+print(a == b) #True
+a = [1, 2]
+b = [1, 2]
+print(a is b) #False
+
+16. What is a function?
+A function is a reusable block of code used to perform a specific task.
+def greet():
+    print("Hello")
+greet()
+
+17. Difference between return and print
+The core difference is that print displays information to the human user on the screen, 
+while return hands a value back to the computer program so it can be saved and used in subsequent calculations.
+
+def add_with_print(a, b):
+    print(a + b)  # This only shows the text on your screen
+# Running this will show "5" on the screen
+result = add_with_print(2, 3) 
+# Trying to use the variable will fail because nothing was saved
+print(result)  # Output (None)
+
+def add_with_return(a, b):
+    return a + b  # This passes the data back to the script
+# The number 5 is successfully saved into the variable
+saved_total = add_with_return(2, 3) 
+# Now the computer can use that data for further math
+final_calculation = saved_total * 10
+print(final_calculation)  # Output: 50
+
+18. What are *args and **kwargs?
+In Python, *args and **kwargs are special symbols used in function definitions to allow them to accept an arbitrary(multiple) number of inputs.
+*args - allows a func to accept any number of position arguments - takes inp as tuples and rteurns value
+*kwargs - allows a func to accept any number of keyword arguments - takes inp as keyword and returns out as dict
+
+def multiply(*args):
+    return sum(args)
+print(add(10, 20, 30)) #60
+
+def student(**kwargs):
+    print(kwargs)
+student(name="Nav", age=22)  #{'name': 'Nav', 'age': 22}
+
+19. What is a Lambda Function?
+A lambda function is a small anonymous function written in a single line.
+square = lambda x: x * x
+
+20. What is Recursion?
+Recursion is a technique where a function calls itself until a base condition is reached.
+
+def factorial(n):
+    if n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+
+
+Task 2: Flexible Calculator
+Objective: Create a calculator that supports dynamic operations.
+Input:
+● Operation type (add, multiply, factorial)
+● Variable number of inputs
+Expected Output:
+● Correct calculation result
+Mandatory Requirements:
+● Use *args for arithmetic operations
+● Use recursion for factorial
+● Use lambda functions
+
+
+def add(*args):
+    return sum(args)
+    
+multiply = lambda *args: eval("*".join(map(str, args))) 
+# def multiply(*args):
+#     result = 1
+#     for num in args:
+#         result *= num
+#     return result
+
+def factorial(n):
+    if n<2:
+        return 1
+    return n* factorial(n-1)
+
+operation = input("Enter operation (add/multiply/factorial): ")
+if operation=="add":
+    print(add(1,2,3))
+elif operation =="multiply":
+    print(multiply(10,20,30))
+elif operation=="factorial":
+    num=int(input("enter num: "))
+    print(factorial(num))
+else:
+    print("Invalid input,Try again...")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
