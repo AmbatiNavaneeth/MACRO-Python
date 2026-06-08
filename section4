@@ -11,6 +11,164 @@ Concepts
 39. What is pass?
 40. What is None?
 
+31. What are Docstrings?
+A docstring is used to describe what a function, class, or module does.
+Example:
+def add(a, b):
+    """
+    Returns sum of two numbers
+    """
+    return a + b
+Access it: print(add.__doc__)
+
+32. How do you read a file?
+with open("data.txt", "r") as file:
+    data = file.read()
+Common Methods
+file.read()      # entire file
+file.readline()  # one line
+file.readlines() # all lines as list
+
+33. Difference between r and rb
+r - Text mode
+open("data.txt", "r")
+rb - Binary mode
+open("image.jpg", "rb")
+
+Used for:Images Videos PDFs
+
+34. How do you write to a file?
+with open("data.txt", "w") as file:
+    file.write("Hello World")
+Modes
+w  # overwrite
+a  # append
+r  # read
+
+35. list comprehension
+List comprehension provides a concise way to create lists using a single line of code.
+even = [i for i in range(10) if i % 2 == 0]
+left part is for modify - middle for range or loop - right for filter
+
+36. generator
+A generator is a special function that uses yield to generate values one at a time, reducing memory usage.
+Why are generators memory efficient?
+Because they generate values only when requested instead of storing all values in memory.
+
+def numbers():
+    yield 1
+    yield 2
+    yield 3
+gen = numbers()
+print(next(gen))
+print(next(gen))
+Output:
+1
+2
+
+Iterator
+Iterators are used to iterate through cpllections like list,tupples,strings in a sequential access one at a time
+nums=[1,2,3,4] - iterable
+it=iter(nums) - iterator
+print(next(it))
+print(next(it))     iter() - converts an iterable to iterator
+print(next(it))     next() - retrieve the next value from the data
+print(next(it)) 
+output:
+1
+2
+3
+4
+
+Generator       	     Iterator
+Uses yield        	Uses iter and next
+Easier to create	     More code
+Memory efficient	  Memory efficient
+Automatically      implemented	Manually implemented
+
+A generator is an easier way to create iterators using yield, while an iterator requires implementing iter() and next() methods.
+
+38. What are Decorators?
+A decorator is a function that adds extra functionality to another function without modifying the original function.
+def decorator(func):
+    def wrapper():
+        print("Before calling the function.")
+        func()
+        print("After calling the function.")
+    return wrapper
+@decorator
+def greet():
+    print("Hello, World!")
+greet()
+
+output:
+Before calling the function.
+Hello, World!
+After calling the function.
+
+Why use decorators?
+For adding:
+Logging
+Authentication
+Timing
+Validation
+
+39. what is pass?
+pass is a null statement used as a placeholder when code is required syntactically but no action is needed.
+
+40. what is None?
+None is a special Python object that represents the absence of a value.
+
+
+Task 4: Text File Analyzer
+Objective: Analyze a text file efficiently.
+Input: Text file
+Expected Output:
+● Line count
+● Word count
+Mandatory Requirements:
+● Use generator for file reading
+● Use list comprehension
+● Use decorator to log execution time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
