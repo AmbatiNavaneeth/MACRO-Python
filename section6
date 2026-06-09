@@ -12,3 +12,306 @@ Concepts
 59. Method overriding
 60. @staticmethod vs @classmethod
 
+51. Classes and Objects
+A class is a blueprint used to create objects. 
+An object is an instance of a class containing actual data.
+class Student:
+    pass
+s1=Student()
+
+52. init() Constructor
+init() is a constructor that automatically executes when an object is created and is used to initialize object attributes.
+
+53. Instance Variables vs Class Variables
+instance variables- the variables which are shared amongst individual objects - theese are at the method level
+class variable- the variables which share among all the object of class - these are at the class level
+variables at the class level are referred to as class variables, whereas variables at the object level are called instance variables.
+
+x=10
+class Solution:
+    def number():
+         print(x)  #any oject can aaccess or use x
+
+class Solution:
+    def number():
+        x=10
+        print(x) #only number method can use x
+
+54. Inheritance
+one class acquiring the properties of another basically child from parent
+Inheritance allows a child class to acquire properties and methods from a parent class, promoting code reusability.
+
+types: 
+single- single child and single parent             
+A → B
+multilevel - parent child subchild                 
+A → B -> C
+multiple - multiple parents single child
+  A   B
+   \ /
+    C
+
+Parent A: Clock (time())    Parent B: FitnessTracker (pulse())
+                  \          /
+                   └── Child: Smartwatch (uses both)
+
+hierarchial - multiple childs acquiring properties from same single parent
+
+     A
+   /   \
+  B     C
+
+ Parent: Animal (Properties: eat(), sleep())
+         /         |         \
+Child: Dog    Child: Cat    Child: Cow
+(bark())      (meow())      (moo())
+
+
+hybrid - both multiple and hierarchial
+ A    B
+   \ /
+    C
+   / \
+D      C 
+
+             Base Parent: Vehicle
+             /                    \
+   Parent A: Car                Parent B: Boat
+             \                    /
+       Child: AmphibiousVehicle (Hybrid)
+
+
+
+# Parent Class
+class Animal:
+    def eat(self):
+        return "Eating food..."
+
+# Child Class inheriting from Animal
+class Dog(Animal):
+    def bark(self):
+        return "Woof!"
+
+# Usage
+my_dog = Dog()
+print(my_dog.eat())  # Inherited method -> "Eating food..."
+print(my_dog.bark()) # Child method -> "Woof!"
+
+2. Multilevel Inheritance
+# Grandparent Class
+class Vehicle:
+    def start(self):
+        return "Vehicle started."
+
+# Parent Class inheriting from Vehicle
+class Car(Vehicle):
+    def drive(self):
+        return "Car is moving."
+
+# Child Class inheriting from Car
+class ElectricCar(Car):
+    def charge(self):
+        return "Battery charging..."
+
+# Usage
+tesla = ElectricCar()
+print(tesla.start())  # From Grandparent -> "Vehicle started."
+print(tesla.drive())  # From Parent -> "Car is moving."
+print(tesla.charge()) # From Child -> "Battery charging..."
+
+3. Multiple Inheritance
+# Parent Class 1
+class Flyer:
+    def fly(self):
+        return "Flying high!"
+
+# Parent Class 2
+class Swimmer:
+    def swim(self):
+        return "Swimming fast!"
+
+# Child Class inheriting from BOTH Parent Classes
+class Duck(Flyer, Swimmer):
+    def quack(self):
+        return "Quack!"
+
+# Usage
+donald = Duck()
+print(donald.fly())   # From Flyer -> "Flying high!"
+print(donald.swim())  # From Swimmer -> "Swimming fast!"
+print(donald.quack()) # From Duck -> "Quack!"
+
+4. Hierarchical Inheritance
+# Shared Parent Class
+class Staff:
+    def log_in(self):
+        return "Logged into system."
+
+# Child Class 1
+class Doctor(Staff):
+    def treat_patient(self):
+        return "Treating patient..."
+
+# Child Class 2
+class Nurse(Staff):
+    def give_medicine(self):
+        return "Administering medicine..."
+
+# Usage
+doc = Doctor()
+nurse = Nurse()
+print(doc.log_in())        # From Staff -> "Logged into system."
+print(doc.treat_patient()) # From Doctor -> "Treating patient..."
+print(nurse.log_in())      # From Staff -> "Logged into system."
+print(nurse.give_medicine()) # From Nurse -> "Administering medicine..."
+
+5. Hybrid Inheritance
+# Base Parent Class
+class School:
+    def school_info(self):
+        return "Welcome to School."
+
+# Hierarchical split from School
+class Teacher(School):
+    def teach(self):
+        return "Teaching students..."
+
+class Student(School):
+    def study(self):
+        return "Studying lessons..."
+
+# Multiple inheritance combination (combines Teacher and Student)
+class TeachingAssistant(Teacher, Student):
+    def assist(self):
+        return "Assisting grading..."
+
+# Usage
+ta = TeachingAssistant()
+print(ta.school_info()) # From School (Grandparent) -> "Welcome to School."
+print(ta.teach())       # From Teacher (Parent 1) -> "Teaching students..."
+print(ta.study())       # From Student (Parent 2) -> "Studying lessons..."
+print(ta.assist())      # From TeachingAssistant -> "Assisting grading..."
+
+56. Polymorphism
+Polymorphism means "many forms" and allows the same method, function or operator to behave differently depending on the object or data it works with
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
