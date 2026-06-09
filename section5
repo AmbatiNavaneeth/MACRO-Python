@@ -85,12 +85,46 @@ Modularity
 Maintainability
 Scalability
 
+Q3. What is the purpose of init()?
+It initializes object attributes when an object is created.
+
+Q4. Why do we use self?
+self allows an object to access its own attributes and methods.
+
 real life example of oops:
 banking system
 Mobile and Web Applications
 gaming 
 Employee Management System
 
+Task 5: Mutability & Scope Demo
+Objective: Demonstrate mutability and scope behavior.
+Input: List and tuple
+Expected Output:
+● List modification reflected
+● Tuple unchanged
+● Slicing results
+student_count=0
+class Student:
+    def __init__(self,name,roll_number,marks):
+        global student_count
+        self.name=name
+        self.roll_number=roll_number
+        self.marks=marks
+        
+        student_count+=1
+    def display(self):
+        print("\n ----student details----")
+        print("student name: ",self.name)
+        print("student roll_number: ",self.roll_number)
+        print("student marks: ",self.marks)
+        
+        print("fisrt 3 characters: ",self.name[:3])
+        
+marks=[10,20,30]
+students=Student("nav",9,marks)
+students.display()
+print("total_students_count: ",student_count)
 
 
 
