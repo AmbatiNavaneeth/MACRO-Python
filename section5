@@ -1,0 +1,257 @@
+SECTION 5: Memory, Scope & OOP Basics (Concepts
+41–50)
+Concepts
+41. Mutable vs immutable
+42. What is slicing?
+43. What is del?
+44. Global vs local variables
+45. global keyword
+46. Variable scope
+47. Namespace
+48. Indentation
+49. Identifier rules
+50. What is OOP?
+
+41. Mutable vs immutable
+mutable - A mutable object can be changed after creation. list set dict
+immutable - A mutable object cannot be changed after creation.  tuple string int float bool
+
+42. What is slicing?
+slicing is used to extract a part of the sequence such as string list tuple using syntax [start:stop:step]
+
+43. What is del?
+the del statement used to remove objects variable elements from collection
+x = "Hello, Python!"
+del x
+print(x) #name error 
+
+44. Global vs local variables
+A local variable is declared inside a function and can only be accessed within that function. 
+A global variable is declared outside all functions and can be accessed throughout the program.
+local: def add():
+            x=10
+global: x=10
+        def add():
+             print(x)
+
+# This is a GLOBAL variable
+global_msg = "I can be seen everywhere!"
+def my_function():
+    # This is a LOCAL variable
+    local_msg = "I only exist inside this function!"
+    print(local_msg)  # Works fine
+    print(global_msg) # Works fine because it is global
+my_function()
+# Trying to access the variables outside the function:
+print(global_msg)     # Works fine
+print(local_msg)      # ERROR: NameError: name 'local_msg' is not defined
+
+45. global keyword
+The global keyword allows a function to modify a global variable instead of creating a local variable with the same name.
+count = 10
+def update():
+    global count=20
+    count = 20
+update()
+print(count)  #20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
