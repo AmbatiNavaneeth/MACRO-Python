@@ -55,6 +55,48 @@ def update():
 update()
 print(count)  #20
 
+46. Variable scope
+Variable scope in Python determines the region of a program where a specific variable can be recognized, accessed, and modified
+like where a varaible can be accesible - what region
+types - local scope, global scope, built-in scope
+
+47. Namespace
+A namespace is a dictionary that stores names and objects.
+name="nav"
+{"name":"nav"}
+
+48. What is Indentation
+Indentation defines code blocks in Python and is mandatory for proper program structure.
+
+49.Identifier rules?
+Identifiers are names given to: Variables Functions Classes
+No keywords should be identifiers like for while else
+rules:
+should not start with number
+should not contain special characters
+not start with _
+no spaces between word should be like a_b
+
+50. What is OOP?
+OOP is a programming paradigm that organizes code using classes and objects. It helps build reusable and maintainable software.
+benefits: 
+Reusability
+Modularity
+Maintainability
+Scalability
+
+real life example of oops:
+banking system
+Mobile and Web Applications
+gaming 
+Employee Management System
+
+
+
+
+
+
+
 
 
 
