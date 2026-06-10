@@ -1,0 +1,329 @@
+SECTION 7: Advanced Python Internals (Concepts 61–70)
+Concepts
+61. Memory management
+62. Garbage collection
+63. Magic methods
+64. __str__
+65. Shallow vs deep copy
+66. Metaclasses
+67. Iterators
+68. Custom iterator
+69. Context manager
+70. Closures
+
+61. Memory management
+Python uses automatic memory management through reference counting and garbage collection. Developers do not need to manually allocate or free memory.
+
+a=10
+a=20
+the object 10 need no longer so its removed automatically suing garbage collector
+
+62. Garbage collection
+Garbage collection is the process of automatically removing objects that are no longer reachable, helping free memory.
+
+63. Magic methods
+Magic methods are special methods that allow objects to interact with built-in Python operations.
+__init__ , __str__ , __len__ , __add__
+
+64. __str__
+The __str__ method defines what should be displayed when an object is printed using print().
+The __str__ method in Python is a special magic (dunder) method used to define a human-readable, user-friendly string representation of a custom class object.Default B
+
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+my_book = Book("1984", "George Orwell")
+print(my_book)  # Output: <__main__.Book object at 0x7f9b18bc3fd0>
+
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+    def __str__(self):
+        return f"'{self.title}' by {self.author}"
+
+my_book = Book("1984", "George Orwell")
+print(my_book)  # Output: '1984' by George Orwell
+
+65. Shallow vs deep copy
+
+66. Metaclasses
+A metaclass is a class that creates other classes. In Python, type is the default metaclass.
+Object is created from Class
+Class is created from Metaclass
+
+class Solution:
+      pass 
+her class is created by metaclass using- type
+
+67. Iterators
+An iterator is an object that allows sequential access to elements using the next() function.
+nums=[1,2,3]
+it=iter(nums)
+next(it)
+op:- 1
+
+68. Custom iterator
+A custom iterator is created by implementing iter() and next() methods.
+simply an iterator we create ourselves
+class Counter:
+    def __init__(self):
+        self.num = 1
+    def __iter__(self):
+        return self
+    def __next__(self):
+        if self.num > 5:
+            raise StopIteration
+        value = self.num
+        self.num += 1
+        return value
+c = Counter()
+for i in c:
+    print(i)
+
+output:
+1
+2
+3
+4
+5
+
+An iterable is any Python object that you can loop over, whereas an iterator is the actual agent responsible for moving through that collection one item at a time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
