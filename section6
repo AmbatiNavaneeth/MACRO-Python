@@ -193,7 +193,37 @@ print(ta.study())       # From Student (Parent 2) -> "Studying lessons..."
 print(ta.assist())      # From TeachingAssistant -> "Assisting grading..."
 
 56. Polymorphism
+Polymorphism in Python is a core Object-Oriented Programming (OOP) concept that allows a single interface, function, or operator to behave differently depending on the object or data type it acts upon
 Polymorphism means "many forms" and allows the same method, function or operator to behave differently depending on the object or data it works with
+
+1. Built-in Function PolymorphismA single built-in Python function can process different object types smoothly without needing distinct names for each type.The len() function changes its counting logic based on what you pass to it.When passed a string, len() calculates the total number of characters.When passed a list, it evaluates the total count of elements.When passed a dictionary, it tracks the total number of keys.pythonprint(len("Python"))  # Output: 6 (Counts characters)
+print(len([1, 2, 3]))  # Output: 3 (Counts list items)
+Use code with caution.2. Operator PolymorphismThe behavior of standard mathematical symbols alters completely depending on the data type of the operands.The + operator executes arithmetic addition when handling integers or floats.The same + operator transitions to concatenation when linking strings.It merges individual elements together into a singular sequence when applied to lists.pythonprint(5 + 5)            # Output: 10 (Addition)
+print("Hello " + "Bob") # Output: Hello Bob (Concatenation)
+print([1, 2] + [3, 4])  # Output: [1, 2, 3, 4] (List extension)
+Use code with caution.3. Polymorphism with Class MethodsYou can define methods sharing the exact same name across completely separate, unrelated classes. This allows you to group different objects together in a collection and call their identical methods uniformly using a simple loop.pythonclass Dog:
+    def sound(self):
+        return "Woof!"
+
+class Cat:
+    def sound(self):
+        return "Meow!"
+
+# Iterating over distinct objects using the same method name
+for animal in [Dog(), Cat()]:
+    print(animal.sound())
+Use code with caution.4. Inheritance and Method OverridingPolymorphism works hand-in-hand with inheritance. A child class inherits methods from a parent class but can choose to redefine them entirely to fit its own specific needs. This action is called method overriding.pythonclass Vehicle:
+    def start(self):
+        return "The vehicle starts."
+
+class ElectricCar(Vehicle):
+    def start(self):
+        return "Silent button start activated."
+
+car = ElectricCar()
+print(car.start()) 
+
+57. Encapsulation?
 
 
 
