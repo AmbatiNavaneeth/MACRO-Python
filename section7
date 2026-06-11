@@ -48,6 +48,8 @@ my_book = Book("1984", "George Orwell")
 print(my_book)  # Output: '1984' by George Orwell
 
 65. Shallow vs deep copy
+Shallow copy copies only the outer object and shares nested objects. if we make changes to copy one the original one also has changes 
+Deep copy creates completely independent copies of all nested objects. if we make changes to copied one that changes will not reflected on original one 
 
 66. Metaclasses
 A metaclass is a class that creates other classes. In Python, type is the default metaclass.
