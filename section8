@@ -150,14 +150,101 @@ difference - Elements in a but not in b -  a - b  a.difference(b) {1,2}
 Symmetric Difference  a ^ b   a.symmetric_difference(b     )Elements in either set, but not both{1, 2, 5, 6}
 
 77. Remove Duplicates
+print(list(set(nums)))
+nums=[1,2,3,3,4,5,1,2,6,3]
+ans=[]
+for num in nums:
+    if num in ans:
+        pass
+    else:
+        ans.append(num)
+print(ans)
+
+78. Merge dictionaries
+d1 = {"a": 10, "b": 20}
+d2 = {"b": 30, "c": 40}
+res={}
+for key in d1:
+    res[key]=d1[key]
+for key in d2:
+    if key in d1:
+        res[key]=d2[key]  over rides if same key found  res[key]+=d2[key] add 
+    else:
+        res[key]=d2[key]
+print(res)
 
 
+79. enumerate
+it is function which returns the index and value while iteartion
+
+for index,value in enumerate(nums):
+
+80. Zip
+In Python, the zip() function combines elements from multiple iterables (like lists, tuples, or strings) into a single iterator of tuples based on their positional index
+
+names = ["Nav", "Ram"]
+marks = [90, 95]
+result = list(zip(names, marks))
+print(result) # [("nav",90),("Ram",95)]
 
 
+Task 8: Inventory Management System
+Objective: Manage inventory using stacks, queues, and dictionaries.
 
+# print("-----Inventory Management System-----")
+from collections import deque
 
+inventory={}
+recent_products=[]
+order_queue=deque()
 
-
+while True:
+    print("\n 1 Add product")
+    print(" 2 view inventory")
+    print(" 3 place order")
+    print(" 4 process order")
+    print(" 5 recently added product")
+    print(" 6 Exit")
+    
+    choice = int(input("Enter Choice: "))
+    
+    if choice==1:
+        product=input("enter product name: ")
+        quantity=int(input("enter quantity: "))
+        inventory[product] = quantity
+        
+        recent_products.append(product)
+        
+        print("Product Added Successfully")
+    
+    elif choice==2:
+        print("\n inventory")
+        for product,quantity in inventory.items():
+            print(product,":",quantity)
+    
+    elif choice==3:
+        order=input("enter order name: ")
+        order_queue.append(order)
+        print("order added succesfully")
+    
+    elif choice==4:
+        if order_queue:
+            processed=order_queue.popleft()
+            print("order processed",processed)
+        else:
+            print("No items to process")
+    
+    elif choice==5:
+        if recent_products:
+            print("Last Added Product:", recent_products.pop())
+        else:
+            print("No items to show")
+    
+    elif choice==6:
+        print("visit again")
+        break
+    else:
+        print("Invalid choice")
 
 
 
