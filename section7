@@ -92,6 +92,192 @@ output:
 
 An iterable is any Python object that you can loop over, whereas an iterator is the actual agent responsible for moving through that collection one item at a time
 
+69. Context manager
+used to manage resources automatically such as files, database connections  or network connections and ensures proper cleanup using the with statement.
+example :- with 
+if any error happens during file operations the file may not close 
+so with is a context manager which ensure of safe closing of file 
+
+with open("data.txt") as file:
+
+70. Closures
+A Python closure is a nested function that retains access to variables from its enclosing (outer) scope, even after the outer function has finished executing
+Scope in Python determines where a specific variable can be accessed or modified in your code.
+Local: Variables defined inside a function.
+Enclosing: Variables in the outer function of a nested function.
+Global: Variables defined at the top level of a script or module.
+Built-in: Keywords and built-in functions pre-loaded in Python.
+
+def outer():
+     x=10
+     def inner():
+           print(x)
+    return inner
+result=outer()
+result()
+10
+
+yet outer finished but it is remembered by inner
+
+Task 7: Smart Resource Manager
+
+This task combines the important concepts from Section 7:
+
+✅ Context Manager
+✅ Custom Iterator
+✅ __str__()
+✅ Shallow vs Deep Copy
+
+Problem Statement
+
+Create a library book management system.
+
+Requirements
+Create a Book class
+Implement __str__() for readable output
+Create a custom iterator to iterate through books
+Use shallow and deep copy on book collections
+Create a context manager to simulate opening and closing a library
+Step 1: Book Class
+class Book:
+
+    def __init__(self, title):
+        self.title = title
+
+    def __str__(self):
+        return f"Book: {self.title}"
+
+Without __str__():
+
+print(book)
+
+Output:
+
+<__main__.Book object at 0x1234>
+
+With __str__():
+
+Book: Python Basics
+Step 2: Custom Iterator
+class LibraryIterator:
+
+    def __init__(self, books):
+        self.books = books
+        self.index = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+
+        if self.index >= len(self.books):
+            raise StopIteration
+
+        book = self.books[self.index]
+
+        self.index += 1
+
+        return book
+Step 3: Context Manager
+class Library:
+
+    def __enter__(self):
+        print("Library Opened")
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("Library Closed")
+Step 4: Main Program
+import copy
+
+
+class Book:
+
+    def __init__(self, title):
+        self.title = title
+
+    def __str__(self):
+        return f"Book: {self.title}"
+
+
+class LibraryIterator:
+
+    def __init__(self, books):
+        self.books = books
+        self.index = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+
+        if self.index >= len(self.books):
+            raise StopIteration
+
+        book = self.books[self.index]
+        self.index += 1
+
+        return book
+
+
+class Library:
+
+    def __enter__(self):
+        print("Library Opened")
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("Library Closed")
+
+
+books = [
+    Book("Python"),
+    Book("SQL"),
+    Book("Django")
+]
+
+print("\nIterator Output")
+
+for book in LibraryIterator(books):
+    print(book)
+
+
+shallow_books = copy.copy(books)
+
+deep_books = copy.deepcopy(books)
+
+print("\nShallow Copy Length:", len(shallow_books))
+print("Deep Copy Length:", len(deep_books))
+
+
+with Library():
+    print("Reading books...")
+Expected Output
+Iterator Output
+
+Book: Python
+Book: SQL
+Book: Django
+
+Shallow Copy Length: 3
+Deep Copy Length: 3
+
+Library Opened
+Reading books...
+Library Closed
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
