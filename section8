@@ -11,6 +11,169 @@ Concepts
 79. enumerate
 80. zip
 
+71. Python data structures
+A data structure is a way of organizing and storing data so that it can be accessed and modified efficiently.
+Data structures are primarily classified into primitive data structures (basic types built into languages like integers and booleans) and non-primitive data structures (complex structures that organize multiple values).
+Non-primitive structures are further divided into linear and non-linear
+
+primitive datastructures:- 
+These are the most fundamental building blocks directly operated on by machine instructions. They typically hold a single value
+int float bool character
+
+Linear Data Structures:-
+In these structures, data elements are arranged in a sequential, single-dimension line where each item connects to its direct neighbor before and after.
+Array:
+An array is a linear data structure that stores a collection of elements in contiguous memory locations.
+Contiguous Memory is defined as a type of memory allocation where data is stored in a sequential and uninterrupted manner in the system's memory
+
+strict arrays in Python cannot store different data types; they are strictly homogeneous. 
+However, Python offers other highly flexible data structures like lists, as well as third-party library workarounds, that allow you to manage mixed data types.
+built in array module - homogenous 
+built in list - hereogenues
+
+string:
+In Python, a string is officially classified as a built-in data type, but conceptually, it also functions as a linear data structure.
+From a syntax and language perspective, a string is a core data type represented by the str class.
+From a computer science perspective, a string is a linear data structure because it organizes and stores data in a specific arrangement.
+
+linkedlist:
+A linked list is a linear data structure where elements are not stored in contiguous memory locations, but are instead chained together using references or pointers
+Singly Linked List: Each node links exclusively forward to the next node; the final node points to None.
+Doubly Linked List: Nodes store both next and prev pointers, facilitating bidirectional traversal at the expense of additional memory.
+Circular Linked List: The last node's pointer circles back to the head node, removing any terminal None point.
+
+
+What is a Stack?
+A stack is a linear data structure that operates on the Last In, First Out (LIFO) principle. The last item added to the stack is always the very first one to be removed.
+Real-World Analogy: Think of a pile of dinner plates. You can only place a new plate on the top, and you can only remove a plate from the top.
+Core Operations:
+push(): Adds an item to the top of the stack.
+pop(): Removes and returns the top item from the stack.
+peek() or top(): Views the top item without removing it.
+isEmpty(): Checks if the stack is completely empty.
+Common Use Cases:
+Reverting states using Undo/Redo functionality in text editors.
+Tracking web pages in Browser History (the back button).
+Managing active functions via the compiler Call Stack during recursion.
+
+What is a Queue?
+A queue is a linear data structure that operates on the First In, First Out (FIFO) principle. The item that enters the data structure first is processed and removed first. 
+It uses two separate ends: the Rear (for adding data) and the Front (for removing data).
+Real-World Analogy: Think of a line of people waiting to buy tickets at a counter. The first person to join the line is served first.
+Core Operations:
+enqueue(): Adds an item to the end (rear) of the queue.
+dequeue(): Removes and returns the item at the front of the queue.
+getFront(): Views the first element without removing it.
+isEmpty(): Checks if the queue has no elements left.
+Common Use Cases:
+Scheduling processes in operating systems (e.g., CPU Task Scheduling).
+Handling shared resources sequentially (e.g., managing print jobs in a Printer Queue).
+Graph traversal algorithms like Breadth-First Search (BFS)
+
+None linear : Non-linear data structures organize data elements hierarchically or in interconnected networks rather than in a sequential line.
+
+Trees
+A Tree Data Structure represents a hierarchy of nodes connected by edges, beginning with a single root node. Each node contains a value and references to its "child" nodes.
+
+Graphs
+A Graph Data Structure consists of a finite set of vertices (or nodes) interconnected by edges. 
+Graphs are ideal for mapping networks where connections don't follow a strict parent-child hierarchy, such as social networks or map routes
+
+Heaps
+A Heap is a specialized tree-based data structure that satisfies the "heap property"
+
+72. Stack using list
+Python lists provide append() and pop() operations, making stack implementation simple.
+stack = []
+stack.append(10)
+stack.append(20)
+stack.append(30)
+print(stack)
+removed = stack.pop()
+print("Removed:", removed)
+print(stack) 
+output:
+Removed:30
+[10,20]
+
+73. Queue using deque
+deque provides faster insertion and deletion from both ends.
+
+from collections import deque
+# Initialize an empty queue
+queue = deque()
+# Enqueue: Add elements to the end (right side)
+queue.append("Task 1")
+queue.append("Task 2")
+queue.append("Task 3")
+print("Queue after enqueuing:", queue) 
+# Output: deque(['Task 1', 'Task 2', 'Task 3'])
+# Dequeue: Remove elements from the front (left side)
+first_in = queue.popleft()
+print("Dequeued element:", first_in) # Output: Task 1
+print("Queue after dequeuing:", queue) # Output: deque(['Task 2', 'Task 3'])
+
+in list pop is slow comparatively to this deque
+
+imp:- deque(deck)- A versatile linear data structure that allows you to insert and remove elements from both ends (the front and the rear)
+      dequeue - The specific operation or action of removing an element from the front of a standard queue.
+
+
+74. append vs extend
+append() adds its argument as a single element to the end of a list, 
+extend() iterates over its argument and adds each item individually, effectively merging the two collections.
+
+# Using append()
+numbers = [1, 2, 3]
+numbers.append([4, 5])
+print(numbers)  
+# Output: [1, 2, 3, [4, 5]] -> Length increased by 1
+
+# Using extend()
+numbers = [1, 2, 3]
+numbers.extend([4, 5])
+print(numbers)  
+# Output: [1, 2, 3, 4, 5] -> Length increased by 2
+
+75. Set use cases
+remove duplicates 
+fast searching
+Suppose a website stores usernames.Duplicate usernames are not allowed.
+
+76. Set operations
+In Python, set operations are built-in features that allow you to combine, compare, and manipulate collections of unique, unordered elements
+a={1,2,3}
+b={3,4,5}
+union - combines both the sets  a | b  a.union(b)  {1,2,3,4,5}
+intersection - returns the same values from both the sets a&b a.intersection(b)  {3}
+difference - Elements in a but not in b -  a - b  a.difference(b) {1,2}
+Symmetric Difference  a ^ b   a.symmetric_difference(b     )Elements in either set, but not both{1, 2, 5, 6}
+
+77. Remove Duplicates
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
