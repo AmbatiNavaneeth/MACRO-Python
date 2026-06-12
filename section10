@@ -13,6 +13,147 @@ Concepts
 
 91. NumPy
 NumPy is a Python library used for numerical computing,efficient array operations, mathematical functions, and supports multi-dimensional arrays, making it widely used in data science and machine learning.
+import numpy as np
+arr = np.array([1, 2, 3, 4])
+print(arr)
+Output: [1 2 3 4]
+
+Real-Time Example
+Image processing
+Machine learning calculations
+Scientific computing
+
+92. Pandas
+Pandas is a Python library used for data analysis and data manipulation.
+It provides two main data structures:
+Series (1D)
+DataFrame (2D)
+
+import pandas as pd
+data = {
+    "Name": ["Nav", "John"],
+    "Age": [21, 22]
+}
+df = pd.DataFrame(data)
+print(df)
+
+Real-Time Example
+Employee records
+Sales reports
+Student databases
+
+93. Matplotlib
+Matplotlib is a Python data visualization library and used to create graphs such as line charts, bar charts, scatter plots, and histograms.
+
+Sales trend charts
+Business reports
+Analytics dashboards
+
+pip install matplotlib numpy
+
+import matplotlib.pyplot as plt
+x=[1,2,3]
+y=[10,20,30]
+plt.plot(x,y)
+plt.show()
+
+94. Scikit-Learn
+Scikit-Learn is a machine learning library that provides algorithms and tools for data preprocessing, model training, prediction, and evaluation.
+
+example:  from sklearn.linear_model import LinearRegression
+
+1. Setup and Environment
+pip install scikit-learn
+
+2. The Python Implementation
+This foundational script loads a toy dataset, splits it, scales the features, trains a model, and checks its accuracy
+
+# Import core selection, preprocessing, and model modules
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+
+# Step 1: Load a built-in dataset (Features 'X', Labels 'y')
+data = load_iris()
+X, y = data.data, data.target
+
+# Step 2: Split data into training (80%) and testing sets (20%)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Step 3: Standardize the features (Mean=0, Variance=1)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Step 4: Initialize the ML estimator 
+model = KNeighborsClassifier(n_neighbors=3)
+
+# Step 5: Fit the model to find underlying data patterns
+model.fit(X_train_scaled, y_train)
+
+# Step 6: Generate predictions on unseen test data
+y_pred = model.predict(X_test_scaled)
+
+# Step 7: Evaluate overall model performance
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Model Accuracy: {accuracy * 100:.2f}%")
+
+Real-Time Example
+House price prediction
+Customer churn prediction
+Recommendation systems
+
+95. Handling Missing Data
+Missing data refers to unavailable values in a dataset. Common techniques include removing missing records using dropna() or replacing them using fillna().
+
+Removes rows with missing values.
+import pandas as pd
+df.dropna()
+
+Replaces missing values with 0.
+df.fillna(0)
+
+96. loc vs iloc
+Both are used to access data in Pandas.  
+loc accesses data using labels
+iloc accesses data using numerical index positions.
+
+df.loc[0, "Name"]
+Output: Nav
+
+df.iloc[0, 0]
+Output: Nav
+
+97. Read CSV
+read_csv() is a Pandas function used to load CSV files into a DataFrame for analysis.
+
+import pandas as pd
+df = pd.read_csv("students.csv")
+
+98. Excel
+Microsoft Excel is a powerful spreadsheet program developed by Microsoft. 
+It allows users to store, organize, calculate, and visualize data using a grid of cells arranged in rows and columns.
+
+100. asyncio
+asyncio is Python's built-in library for asynchronous programming.
+It helps run multiple tasks concurrently without creating multiple threads.
+
+import asyncio
+async def task():
+    print("Running")
+asyncio.run(task())
+
+Real-Time Example: Suppose a website needs to:
+Fetch user profile
+Fetch orders
+Fetch notifications
+All can run concurrently using asyncio.
+
+
 
 
 
