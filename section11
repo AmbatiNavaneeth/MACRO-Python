@@ -1,0 +1,33 @@
+SECTION 11: Concurrency, Testing & APIs (Concepts
+101–130)
+Concepts
+101. Multithreading
+102. GIL
+103. Multiprocessing
+104. Thread vs process
+105. Queue module
+106. Daemon threads
+107. Debugging
+108. Logging levels
+109. Testing
+110. Unit testing
+111. unittest
+112. pytest
+113. Mocking
+114. Monkey patching
+115. Serialization
+116. Pickle
+117. JSON handling
+118. Database connection
+119. SQLite
+120. MySQL
+121. SQLAlchemy
+122. API data fetching
+123. requests module
+124. Design patterns
+125. Singleton
+126. Factory Method
+127. Observer
+128. Best practices
+129. List comprehension vs map
+130. timeit
