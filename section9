@@ -1,0 +1,439 @@
+SECTION 9: Functional Programming & Regex (Concepts
+81–90)
+Concepts
+81. map, filter, reduce
+82. Regular expressions
+83. Pattern matching
+84. re module
+85. Virtual environments
+86. pip
+87. Python frameworks
+88. Flask
+89. Django
+90. Data science libraries
+
+81. map, filter, reduce
+These are functional programming tools used to process data collections efficiently.
+map() → applies a function to every element.   ex:- converting dollar to rupee
+filter() → selects elements based on a condition.  ex:- filter users based on active
+reduce() → combines all elements into a single value.  ex:-  total bill
+
+map()
+nums=[1,2,3,4]
+res=list(map(lambda x:x*x,nums))
+print(res)
+o/p:- [1,4,9,16]
+
+filter()
+nums=[1,2,3,4]
+res=list(filter(lambda x:x%2==0,nums))
+print(res)
+o/p:- [2,4]
+
+reduce()
+nums=[1,2,3,4]
+res=reduce(lambda x,y;x+y ,nums))
+print(res)
+o/p:-10
+
+82. Regular Expressions (Regex)
+Function	         Purpose
+re.search()  	Finds first match
+re.match()	  Matches from beginning
+re.findall()	Returns all matches
+re.sub()	    Replace text
+re.split()	  Split text
+Regular Expression (Regex) is a sequence of characters used to search, match, validate, or extract patterns from text.
+In Python, regular expressions (regex) are handled through the built-in re module, 
+which provides powerful tools for searching, extracting, and manipulating text patterns
+
+Function             Primary Purpose                                                 Return Value
+re.search()    Find the first pattern match anywhere in a string.                     A Match object (or None).
+re.match()     Check for a pattern match only at the start of a string.               A Match object (or None).
+re.findall()   Extract all non-overlapping instances of a pattern.                    A list of matching strings.
+re.sub()       Replace matched patterns with alternative text.                        A modified string.
+re.compile()   Save a pattern to a reusable object for faster multi-use execution.    A pattern object
+
+import re
+
+text = "The price is $45 and $100"
+
+# 1. re.search() - Finds the first match anywhere in the string
+match = re.search(r"\$\d+", text)
+if match:
+    print(match.group())  # Output: $45
+
+# 2. re.findall() - Returns a list of all non-overlapping matches
+all_matches = re.findall(r"\$\d+", text)
+print(all_matches)  # Output: ['$45', '$100']
+
+# 3. re.sub() - Replaces matches with a replacement string
+clean_text = re.sub(r"\$\d+", "[PRICE]", text)
+print(clean_text)  # Output: "The price is [PRICE] and [PRICE]"
+
+# 4. re.split() - Splits text using the match pattern as a delimiter
+split_text = re.split(r" and ", text)
+print(split_text)  # Output: ['The price is $45', '$100']
+
+
+83. Pattern matching
+Pattern matching means checking whether a specific pattern exists in a string or data.
+Regex is commonly used for pattern matching.
+
+import re
+text=" hi my number is 98765432"
+if re.serach(r"\d{10}",text):
+    print("macth found")
+
+Finding emails in resumes
+Detecting URLs
+Extracting dates from report
+
+
+84. re Module
+The re module is Python's built-in library for working with Regular Expressions.
+
+import re
+text = "cat dog cat"
+print(re.findall("cat", text))
+Output:
+['cat', 'cat']
+
+85. Virtual Environment
+A virtual environment creates an isolated Python workspace with its own packages and dependencies. 
+It prevents version conflicts between projects.
+
+Create environment:
+python -m venv myenv
+
+python -m venv .venv
+
+Activate:
+myenv\Scripts\activate
+
+.venv\Scripts\activate.bat
+
+install packages
+pip install <package_name>
+
+deactivate the envi
+deactivate
+
+Real-Time Example
+Project A: Django 4.0
+Project B: Django 5.0
+Both can run independently using separate virtual environments.
+
+86. pip
+pip stands for "Pip Installs Packages".
+standard package manager for Python, used to install and manage software packages not included in the standard library
+pip numpy
+pip django
+pip flask
+pip list - to check all installed packages
+
+87. Python frameworks
+A Framework is a collection of tools, libraries, and predefined structures that helps developers build applications faster.
+example- flask django fast api
+instagram uses django
+manay api now are created by fast api's[An API, which stands for Application Programming Interface, is a set of rules, protocols, and definitions that allows different software applications to communicate and exchange data with each other.]
+
+88. Flask
+Flask is a lightweight and flexible  Python web framework used for building web applications and APIs.
+
+1. InstallationInstall the framework using pip from the PyPI repository:
+pip install Flask
+
+2. Create Your First App
+Create a file named app.py and add the following code snippet
+
+from flask import Flask
+# Initialize the application
+app = Flask(__name__)
+# Define the root route
+@app.route("/")
+def home():
+    return "Hello, World!"
+# Run the local development server
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+3. Run the Server
+Execute the application from your terminal:
+python app.py
+
+🌟 Core Concepts
+Routing: Maps specific URLs to Python functions using the @app.route() decorator.
+Debug Mode: Activating debug=True automatically restarts the local server whenever code changes are detected.
+Jinja2 Templating: Used to render dynamic variables and control flows directly inside HTML files.
+Extensibility: Easily plugs into third-party extensions for advanced features like database ORMs (SQLAlchemy), authentication, and form validation.
+
+
+89. Django
+Django is a high level,open source Python web framework that follows the MVT architecture and provides built-in features such as ORM, authentication, security, and an admin panel.
+
+MVT architecture
+Model: The data interface. It defines your database schema using standard Python code, allowing you to manipulate records via an Object-Relational Mapper (ORM) instead of raw SQL.
+View: The request handler. It contains the backend logic that accepts HTTP requests, communicates with the Model, and returns the appropriate HTTP response or template.
+Template: The presentation layer. These are text or HTML files mixed with the Django Template Language (DTL) to dynamically render data passed from the views.
+
+90. Data Science Libraries
+Data Science Libraries are Python libraries used for data analysis, visualization, machine learning, and scientific computing.
+Python provides several data science libraries such as NumPy, Pandas, Matplotlib, Scikit-Learn, TensorFlow, and Keras.
+
+numpy - numerical computiong
+pandas - data analysis
+matplotlib - data visulazation
+scikit learn - machine learning
+tensorflow - deep learning
+keras - neural network
+
+
+Task 9: Log File Analyzer
+Objective: Extract errors and warnings from logs using regex and functional tools.
+
+
+import re
+
+with open("mylog.txt","r") as files:
+    logs=file.readlines()
+    
+errors=list(filter(lambda line:re.serach(r"ERROR",line),logs))
+warnings=list(filter(lambda line:re.search(r"WARNINGS",line),logs))
+
+errors=list(map(str.strip,errors))
+warnings=list(map(str.strip,warnings))
+
+print("ERRORS")
+for error in errors:
+    print(error)
+    
+print("WARNINGS")
+for warning in warnings:
+    print(warning)
+
+re.search It checks whether the pattern "ERROR" exists anywhere in the given line. 
+If found, it returns a match object; otherwise it returns None. In my Log File Analyzer, I used it with filter() to extract only error messages from the log file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
