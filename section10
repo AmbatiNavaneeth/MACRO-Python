@@ -138,6 +138,23 @@ df = pd.read_csv("students.csv")
 Microsoft Excel is a powerful spreadsheet program developed by Microsoft. 
 It allows users to store, organize, calculate, and visualize data using a grid of cells arranged in rows and columns.
 
+99. Coroutines
+A coroutine is an asynchronous function defined using async def. It allows tasks to pause and resume without blocking other operations.
+It is created using: async def
+
+#example:-
+
+import asyncio
+async def greet():
+    print("Hello")
+asyncio.run(greet())
+
+Real-Time Example
+Chat applications
+API calls
+Online gaming servers
+Interview Answer
+
 100. asyncio
 asyncio is Python's built-in library for asynchronous programming.
 It helps run multiple tasks concurrently without creating multiple threads.
