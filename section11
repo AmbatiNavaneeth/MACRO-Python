@@ -126,21 +126,55 @@ if mydb.is_connected():      # Verify the connection
   print("Connection established!")
 
 
+119. SQLite
+SQLite is a serverless, single-file embedded database engine 
+Unlike traditional databases, it stores the entire dataset within a single ordinary file on your disk, eliminating the need to set up  dedicated database server
+example- mobile apps, web browser
+
+MySQL - is a multi-user, client-server database management system that runs as a dedicated network service,
+SQLite - is a serverless, single-file embedded database engine that runs directly within an application
 
 
+120. Mysql
+MySQL is a widely used relational database management system that stores and manages structured data.
+exmple- banking systems, websites
 
 
+121. SQLAlchemy
+SQLAlchemy is a Python ORM (Object Relational Mapper) that allows us to interact with databases using Python classes instead of writing raw SQL queries.
+
+Without SQLAlchemy-> SELECT * FROM students;
+With SQLAlchemy->    students = session.query(Student).all()
+
+122. API Data Fetching
+API data fetching is the process of requesting and retrieving data from a remote server using APIs, typically through HTTP requests.
+
+GET: Retrieves data from a resource.
+POST: Submits new data to a server.
+PUT / PATCH: Updates existing resources.
+DELETE: Removes a resource from the server.
+
+import requests
+response = requests.get("https://api.example.com/users")
 
 
+123. requests Module
+The requests module is a Python library used to send HTTP requests.
+The requests module is used to send HTTP requests and interact with REST APIs. It supports GET, POST, PUT, and DELETE operations.
 
+Example
+import requests
+response = requests.get("https://api.github.com")
+print(response.status_code)
 
+Common Methods
+requests.get()
+requests.post()
+requests.put()
+requests.delete()
 
-
-
-
-
-
-
+Real-Time Example
+Fetching user data from a web service.
 
 
 
