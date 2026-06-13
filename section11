@@ -5,7 +5,7 @@ Concepts
 102. GIL
 103. Multiprocessing
 104. Thread vs process
-105. Queue module
+105. Queue module 
 106. Daemon threads
 107. Debugging
 108. Logging levels
@@ -176,27 +176,61 @@ requests.delete()
 Real-Time Example
 Fetching user data from a web service.
 
+124. Design Patterns
+Design Patterns are reusable solutions to commonly occurring software design problems.
+
+Common Patterns : Singleton
+                  Factory Method
+                  Observer
+
+125. Singleton Pattern
+Singleton ensures that only one object of a class exists throughout the application.
+Real-Time Example: Database connection manager.
+
+126. Factory Method Pattern 
+Factory Method creates objects without exposing the object creation logic.
+Real-Time Example
+Payment systems: CreditCard
+                 UPI
+                 PayPal
+
+127. Observer Pattern
+Observer Pattern allows multiple objects to be notified automatically when another object's state changes.
+
+YouTube Channel
+      ↓
+Subscribers get notified
+
+128. Best Practices
+Best practices are recommended coding techniques that improve code quality, readability, and maintainability.
+
+Python best practices include:
+PEP 8 standards
+writing modular code
+using meaningful names
+handling exceptions properly  - try catch except
+maintaining readable documentation.
+
+129. List Comprehension vs map()
+Both list comprehension and map() transform data
+
+nums=[1,2,3,4]
+ans1=[num*num for num in nums] # using list comp
+ans2=list(maps(lambda x:x*x,nums)) #using map()
+
+list comprehension are more readable than map and
+generally list comprehension suits for applying conditions on data wheter map suitable for resuable functions
 
 
+130. timeit
+The timeit module measures the execution time of Python code and is commonly used for performance testing and optimization.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import timeit
+result = timeit.timeit(
+    "sum(range(100))",
+    number=1000
+)
+print(result)    # 0.0006901699816808105
 
 
 
