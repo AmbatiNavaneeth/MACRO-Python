@@ -1,0 +1,180 @@
+SECTION 12: Modern & Advanced Python (Concepts
+131–150)
+Concepts
+131. Profiling
+132. Assertions
+133. Memory leaks
+134. Type hints
+135. Dataclasses
+136. Frozen dataclasses
+137. Walrus operator
+138. Pattern matching (3.10+)
+139. f-strings
+140. __slots__
+141. globals & locals
+142. eval & exec
+143. Recursion limits
+144. Tail recursion
+145. Compile-time vs runtime
+146. Python 3.11 features
+147. Optimization techniques
+148. Caching (lru_cache)
+149. Async context managers
+150. Python security best practices
+
+
+131. Profiling
+Profiling is the process of measuring a program's performance, such as execution time and memory usage.
+
+Real-Time Example
+Finding which function is slowing down an application.
+
+132. Assertions
+Assertions are used to check whether a condition is true during program execution
+age = 18
+assert age >= 18
+
+133. Memory Leaks
+Memory leaks occur when objects continue occupying memory unnecessarily, leading to increased memory consumption and reduced performance.
+
+example:- Large applications becoming slower over time due to unused objects remaining in memory.
+
+134. Type Hints ⭐
+Type Hints are a special syntax that allow declaring the type of a variable
+
+def greet(name: str, age: int) -> str:
+    return f"Hello {name}, you are {age} years old."
+
+135. Dataclasses ⭐
+Dataclasses reduce boilerplate code by automatically generating common methods like __init__(), __repr__(), and __eq__() for classes that primarily store data.
+A Python dataclass is a regular class enhanced by the @dataclass decorator from the built-in dataclasses module to automatically generate boilerplate "dunder" methods like __init__(), __repr__(), and __eq__()
+
+from dataclasses import dataclass
+@dataclass
+class Product:
+    name: str
+    price: float
+    quantity: int = 0  # Supports default values
+# Instantiation
+item = Product(name="Laptop", price=999.99, quantity=2)
+# 1. Automatic __repr__ (Easy Debugging)
+print(item)  
+# Output: Product(name='Laptop', price=999.99, quantity=2)
+# 2. Automatic __eq__ (Structural Comparison)
+same_item = Product("Laptop", 999.99, 2)
+print(item == same_item)  
+# Output: True
+
+136. Frozen Dataclasses
+Frozen dataclasses create immutable objects.
+To make a dataclass frozen, pass frozen=True to the decorator
+
+from dataclasses import dataclass
+@dataclass(frozen=True)
+class Point:
+    x: int
+    y: int
+
+p = Point(1, 2)
+# p.x = 5  <-- This will raise dataclasses.FrozenInstanceError
+
+137. Walrus Operator (:=)
+The walrus operator assigns and returns a value in a single expression.
+Example
+if (n := len("Python")) > 5:
+    print(n)  #6
+
+138. Pattern Matching (Python 3.10+)
+Pattern matching is the alternative to multiple if-elif statements.
+Pattern matching uses match-case statements to compare values against patterns and execute corresponding code blocks.
+
+value = 2
+match value:
+    case 1:
+        print("One")
+    case 2:
+        print("Two")
+
+139. f-Strings
+f-strings are a python feature that allows you to embedd(Join) both the expressions and variables directly into the strings 
+
+name = "Alice"
+age = 28
+print(f"My name is {name} and I am {age} years old.")
+
+140. slots ⭐
+
+class Player:
+    # Explicitly declare allowed attributes
+    __slots__ = ('name', 'level', 'score')
+    
+    def __init__(self, name, level, score):
+        self.name = name
+        self.level = level
+        self.score = score
+
+# Usage
+p = Player("Alice", 10, 500)
+print(p.name)  # Works normally
+
+# This will raise an AttributeError because 'inventory' is not in __slots__
+p.inventory = ["sword", "shield"] 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
