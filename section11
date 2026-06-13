@@ -31,3 +31,269 @@ Concepts
 128. Best practices
 129. List comprehension vs map
 130. timeit
+
+
+
+113. Mocking
+Mocking creates fake objects that simulate real objects during testing.
+Example:Database replaced by fake database during tests.
+
+114. Monkey patching
+Monkey patching is the practice of dynamically modifying classes or functions during runtime.
+
+# 1. Define a class with an original method
+class Monkey:
+    def behavior(self):
+        return "Eating a banana"
+# 2. Define a new function with the desired behavior
+def patched_behavior(self):
+    return "Playing the drums!
+# 3. Apply the monkey patch at runtime
+Monkey.behavior = patched_behavior
+
+# 4. Test the modification
+m = Monkey()
+print(m.behavior())
+
+
+115. Serialization
+Serialization is the process of converting an object into a format that can be stored or transmitted.
+
+object-> JSON
+
+
+116. Pickle - Pickling converts an in-memory Python object into a binary byte stream 
+In Python, pickle is a built-in module used for serializing and deserializing object structures. 
+Pickling converts an in-memory Python object (like a list, dictionary, or custom class instance) into a binary byte stream that can be stored on disk or transmitted over a network.
+
+import pickle
+# 1. Data to serialize
+user_profile = {
+    "username": "coder123",
+    "scores": [95, 88, 100],
+    "is_active": True
+}
+
+# 2. Pickling: Saving the dictionary to a file
+with open("user_data.pkl", "wb") as file:
+    pickle.dump(user_profile, file)
+
+# 3. Unpickling: Loading the dictionary back from the file
+with open("user_data.pkl", "rb") as file:
+    loaded_profile = pickle.load(file)
+
+print(loaded_profile)
+# Output: {'username': 'coder123', 'scores': [95, 88, 100], 'is_active': True}
+
+
+117. JSON Handling
+JSON is a lightweight data-interchange format.
+JSON handling involves converting Python objects to JSON and JSON data back to Python objects using the json module.
+
+import json
+
+# Serialization: Python Dictionary to JSON String
+my_data = {"name": "David", "age": 40}
+json_string = json.dumps(my_data)
+
+# Deserialization: JSON String to Python Dictionary
+json_string = '{"name": "Charlie", "age": 35}'
+data = json.loads(json_string)
+
+
+118. Database Connection
+Database connection establishes communication between an application and a database.
+
+Host/Server Address:  The location of the database (e.g., localhost or an IP address).
+Port:                 The specific communication port used by the database (e.g., 3306 for MySQL, 5432 for PostgreSQL).
+Database Name:        The specific schema or catalog you are targeting.
+Credentials:          The authorized username and password.
+
+import sqlite3
+conn = sqlite3.connect("data.db")
+
+#using mysql - connector
+
+import mysql.connector
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="username",
+  password="password",
+  database="database_name"
+)
+
+if mydb.is_connected():      # Verify the connection
+  print("Connection established!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
