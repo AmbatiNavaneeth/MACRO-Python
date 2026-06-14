@@ -30,7 +30,8 @@ the functions which already provided by python
 len() max() min() input() 
 
 15. Difference Between is and ==
-is used to chech the two objects memory location where == used to check the data inside the ojbect
+is used to chech the two objects memory location  
+== used to check the data inside the ojbect
 a = [1, 2]
 b = [1, 2]
 print(a == b) #True
@@ -51,6 +52,7 @@ while return hands a value back to the computer program so it can be saved and u
 def add_with_print(a, b):
     print(a + b)  # This only shows the text on your screen
 # Running this will show "5" on the screen
+
 result = add_with_print(2, 3) 
 # Trying to use the variable will fail because nothing was saved
 print(result)  # Output (None)
@@ -68,7 +70,7 @@ In Python, *args and **kwargs are special symbols used in function definitions t
 *args - allows a func to accept any number of position arguments - takes inp as tuples and rteurns value
 *kwargs - allows a func to accept any number of keyword arguments - takes inp as keyword and returns out as dict
 
-def multiply(*args):
+def add(*args):
     return sum(args)
 print(add(10, 20, 30)) #60
 
