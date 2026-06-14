@@ -81,7 +81,7 @@ D      C
        Child: AmphibiousVehicle (Hybrid)
 
 
-
+1. Single Inheritance
 # Parent Class
 class Animal:
     def eat(self):
@@ -192,36 +192,14 @@ print(ta.teach())       # From Teacher (Parent 1) -> "Teaching students..."
 print(ta.study())       # From Student (Parent 2) -> "Studying lessons..."
 print(ta.assist())      # From TeachingAssistant -> "Assisting grading..."
 
-56. Polymorphism
+56. Polymorphism - Polymorphism refers to the ability of code, data, or objects to take on multiple forms
 Polymorphism in Python is a core Object-Oriented Programming (OOP) concept that allows a single interface, function, or operator to behave differently depending on the object or data type it acts upon
 Polymorphism means "many forms" and allows the same method, function or operator to behave differently depending on the object or data it works with
 
-1. Built-in Function PolymorphismA single built-in Python function can process different object types smoothly without needing distinct names for each type.The len() function changes its counting logic based on what you pass to it.When passed a string, len() calculates the total number of characters.When passed a list, it evaluates the total count of elements.When passed a dictionary, it tracks the total number of keys.pythonprint(len("Python"))  # Output: 6 (Counts characters)
-print(len([1, 2, 3]))  # Output: 3 (Counts list items)
-Use code with caution.2. Operator PolymorphismThe behavior of standard mathematical symbols alters completely depending on the data type of the operands.The + operator executes arithmetic addition when handling integers or floats.The same + operator transitions to concatenation when linking strings.It merges individual elements together into a singular sequence when applied to lists.pythonprint(5 + 5)            # Output: 10 (Addition)
-print("Hello " + "Bob") # Output: Hello Bob (Concatenation)
-print([1, 2] + [3, 4])  # Output: [1, 2, 3, 4] (List extension)
-Use code with caution.3. Polymorphism with Class MethodsYou can define methods sharing the exact same name across completely separate, unrelated classes. This allows you to group different objects together in a collection and call their identical methods uniformly using a simple loop.pythonclass Dog:
-    def sound(self):
-        return "Woof!"
+Compile-Time Polymorphism and Runtime Polymorphism :-
+Both allow the same method name to be used for different tasks, but they execute at different times during program execution
 
-class Cat:
-    def sound(self):
-        return "Meow!"
 
-# Iterating over distinct objects using the same method name
-for animal in [Dog(), Cat()]:
-    print(animal.sound())
-Use code with caution.4. Inheritance and Method OverridingPolymorphism works hand-in-hand with inheritance. A child class inherits methods from a parent class but can choose to redefine them entirely to fit its own specific needs. This action is called method overriding.pythonclass Vehicle:
-    def start(self):
-        return "The vehicle starts."
-
-class ElectricCar(Vehicle):
-    def start(self):
-        return "Silent button start activated."
-
-car = ElectricCar()
-print(car.start()) 
 
 
 57. Encapsulation?
@@ -233,9 +211,77 @@ Data hiding: A language feature to restrict access to members of an object. For 
 Bundling of data and methods together: Data and methods that operate on that data are bundled together. 
 For example, the data members and member methods that operate on them are wrapped into a single unit known as a class.
 
+58. Method overloading
+Method overloading means having multiple methods with the same name but different parameters (inputs) inside the same class.
+class Calculator:
+    # A single method that handles different numbers of inputs
+    def add(self, a, b, c = 0): 
+        return a + b + c
+calc = Calculator()
+print(calc.add(2, 3))     # Works! Outputs: 5  (c defaults to 0)
+print(calc.add(2, 3, 4))  # Works! Outputs: 9
+
+59. Method overriding
+Method overriding happens when a child class changes a method it inherited from its parent class because it needs to behave differently
+class Animal:
+    def make_sound(self):
+        print("Some generic animal sound")
+
+class Cat(Animal):
+    # Overriding the parent's method
+    def make_sound(self):
+        print("Meow!")
+# Testing the override
+my_cat = Cat()
+my_cat.make_sound()  # Outputs: Meow! (Not the generic sound)
+
+
+60. @staticmethod vs @classmethod
 
 
 
+
+Task 6: Mini Banking System
+Objective: Build a basic banking system using OOP.
+Mandatory Requirements:
+● Base class Account
+● Child class SavingsAccount
+● Private balance variable
+
+
+class Account:
+
+    def __init__(self, balance):
+        self.__balance = balance   # Private variable
+
+    def deposit(self, amount):
+        self.__balance += amount
+        print(f"Deposited: {amount}")
+
+    def withdraw(self, amount):
+        if amount <= self.__balance:
+            self.__balance -= amount
+            print(f"Withdrawn: {amount}")
+        else:
+            print("Insufficient Balance")
+
+    def get_balance(self):
+        return self.__balance
+
+
+class SavingsAccount(Account):
+
+    def display(self):
+        print("Savings Account Balance:", self.get_balance())
+
+
+# Object Creation
+acc = SavingsAccount(5000)
+
+acc.deposit(1000)
+acc.withdraw(500)
+
+acc.display()
 
 
 
