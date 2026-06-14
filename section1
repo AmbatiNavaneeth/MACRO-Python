@@ -50,6 +50,9 @@ list is a mutable datatyoe whereAS TUuple is immutable
 list uses  [] and tuple uses ()
 Can modify data and cannot modify
 
+"ordered" means a data structure remembers the exact sequence in which elements were added, allowing you to retrieve or loop through them in that same order. 
+"Unordered" means the data structure does not guarantee any specific sequence, so elements have no fixed position or index
+
 9. What is a Dictionary?
 A dict is a mutable and ordered datatype which stores the data as key value pairs  dict() or {key:value}
 key-immutable value-mutable
