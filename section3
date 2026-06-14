@@ -27,6 +27,13 @@ try-the block which has the risky code
 except - handles if any error occur in try block
 finally - this block willl be executed anyways
 
+compiletime vs runtime
+compile time is when human-readable source code is translated into machine-readable code - runtime errors During source code compilation.
+while runtime is when that translated code is actively executed by a computer - compile errors During program execution.
+example:-
+Think of compile time as baking a cake using a recipe (checking for missing ingredients), and 
+runtime as eating the cake (finding out it tastes bad because you accidentally used salt instead of sugar).
+
 22. What is try-except?
 try contains code that may cause an error.
 except contains code that runs if an error occurs.
