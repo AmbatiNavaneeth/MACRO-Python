@@ -12,7 +12,8 @@ Concepts
 100. asyncio
 
 91. NumPy
-NumPy is a Python library used for numerical computing,efficient array operations, mathematical functions, and supports multi-dimensional arrays, making it widely used in data science and machine learning.
+NumPy is a Python library used for numerical computing,efficient array operations, mathematical functions, and 
+supports multi-dimensional arrays, making it widely used in data science and machine learning.
 import numpy as np
 arr = np.array([1, 2, 3, 4])
 print(arr)
