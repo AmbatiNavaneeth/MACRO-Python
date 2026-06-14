@@ -80,6 +80,9 @@ output:
 3
 4
 
+__iter__(): Returns the iterator object itself.
+__next__(): Fetches the next value in the sequence or raises a StopIteration error when empty.
+
 Generator       	     Iterator
 Uses yield        	Uses iter and next
 Easier to create	     More code
@@ -131,7 +134,42 @@ Mandatory Requirements:
 ● Use list comprehension
 ● Use decorator to log execution time
 
+import time
 
+# Decorator to log execution time
+def log_time(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+
+        print(f"Execution Time: {end - start:.6f} seconds")
+        return result
+    return wrapper
+
+
+# Generator for reading file
+def read_file(filename):
+    with open(filename, "r") as file:
+        for line in file:
+            yield line
+
+
+@log_time
+def analyze_file(filename):
+    lines = list(read_file(filename))
+
+    line_count = len(lines)
+
+    # List comprehension
+    word_counts = [len(line.split()) for line in lines]
+    total_words = sum(word_counts)
+
+    print("Line Count :", line_count)
+    print("Word Count :", total_words)
+
+
+analyze_file("sample.txt")
 
 
 
