@@ -211,7 +211,7 @@ if mydb.is_connected():      # Verify the connection
 
 
 119. SQLite
-SQLite is a serverless, single-file embedded database engine 
+SQLite is a lightweight serverless relational database engine 
 Unlike traditional databases, it stores the entire dataset within a single ordinary file on your disk, eliminating the need to set up  dedicated database server
 example- mobile apps, web browser
 
