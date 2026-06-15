@@ -103,45 +103,71 @@ age = 28
 print(f"My name is {name} and I am {age} years old.")
 
 140. slots ⭐
+slots is a special class-level attribute which reduces memory consumption by preventing the creation of instance dictionaries and restricting allowed attributes.
 
+Standard Class (Uses __dict__)python
 class Player:
-    # Explicitly declare allowed attributes
-    __slots__ = ('name', 'level', 'score')
-    
-    def __init__(self, name, level, score):
+    def __init__(self, name, level):
         self.name = name
         self.level = level
-        self.score = score
 
-# Usage
-p = Player("Alice", 10, 500)
-print(p.name)  # Works normally
+p = Player("Alice", 10)
+p.score = 100  # Works! You can add arbitrary attributes at runtime.
+print(p.__dict__)  
+# Output: {'name': 'Alice', 'level': 10, 'score': 100}
 
-# This will raise an AttributeError because 'inventory' is not in __slots__
-p.inventory = ["sword", "shield"] 
+Use code with caution.Slotted Class (Uses __slots__)pythonclass SlottedPlayer:
+    __slots__ = ("name", "level")  # Accepts a tuple or list of strings
 
-
-
-
-
-
+    def __init__(self, name, level):
+        self.name = name
+        self.level = level
 
 
-
-
-
+p = SlottedPlayer("Bob", 20)
+# p.score = 100  # Raises AttributeError! Cannot add new attributes.
+# print(p.__dict__)  # Raises AttributeError! __dict__ does not exist.
 
 
 
+141. Globals and Locals
+In programming, Globals and Locals refer to the "scope" or region of code where a variable is accessible.
+Locals: Variables declared inside a specific function or block. They are only accessible within that block and are destroyed when it finishes.
+Globals: Variables declared outside of any function. They can be accessed or modified from anywhere in your entire program
+
+142. eval & exec
+eval() and exec() are built-in functions used to dynamically parse and run code passed as a string
+eval() evaluates a single expression and returns a value
+exec() executes complex statements and returns None
+
+144. Tail Recursion
+Tail recursion occurs when the recursive call is the final operation in a function.
+example:-factorial program
+
+145. Compile-Time vs Runtime
+Compile-time occurs before execution. - involves syntax checking and code preparation
+Runtime occurs while the program is executing - refers to actual program execution.
+
+146 python3.11
+Major Features
+Faster execution
+Better error messages
+Performance improvements
+Debugging and Error Handling
+
+147. Optimization Techniques
+Optimization techniques improve application performance by reducing execution time and memory consumption.
+utilizing built-in functions and libraries, 
+refining algorithms, 
+optimizing data structures, and implementing caching or memoization where appropriate.
+
+Use sets for lookups
+Use generators
+Use list comprehensions
+Avoid unnecessary loops
 
 
-
-
-
-
-
-
-
+148. Caching (lru_cache)
 
 
 
