@@ -32,7 +32,93 @@ Concepts
 129. List comprehension vs map
 130. timeit
 
+101. Multithreading
+A thread is the smallest unit of execution.
+Multithreading is a technique where multiple threads run within the same process to perform tasks concurrently.
+import threading
+def task():
+    print("Task Running")
+t1 = threading.Thread(target=task)
+t1.start()
+t1.join()
 
+102. GIL (Global Interpreter Lock)
+GIL is a lock in CPython that allows only one thread to execute Python bytecode at a time.
+Python is a programming language specification (the blueprint)
+CPython is a specific software program (the official interpreter) that runs that code.
+
+103. Multiprocessing
+process - is an independent, running instance of a program that has its own fully isolated memory space, system resources, and dedicated Python interpreter
+Multiprocessing is the use of two or more physical CPUs (or processor cores) within a single computer system to execute multiple tasks simultaneously.
+from multiprocessing import Process
+def task():
+    print("Running")
+p = Process(target=task)
+p.start()
+p.join()
+
+104.thread vs process
+A thread is the smallest unit of execution.
+A A process is an independent, running instance of a program with its own private memory and resources
+
+Threads share memory within the same process   -  processes have separate memory spaces. 
+Threads are generally used for I/O-bound tasks -  processes for CPU-bound tasks.
+                                Lightweight	   -  Heavyweight
+                              Faster creation  -  Slower creation
+
+
+105. queue module
+The Queue module provides a thread-safe FIFO data structure used for task scheduling and communication between threads.
+
+from queue import Queue
+q = Queue()
+q.put("Python")
+print(q.get())
+
+106. Daemon Threads
+Daemon threads are background threads that automatically stop when the main program terminates.
+thread.daemon = True
+
+107. Debugging
+Debugging in Python is the process of identifying, analyzing, and fixing errors (bugs) in the source code to ensure your program runs smoothly and produces the expected results
+
+breakpoint()
+
+108. Logging Levels
+using the logging module which provides standard severity levels to categorize and filter log messages based on their urgency.
+
+CRITICAL - A critical failure; the program may crash.
+ERROR - A major problem occurred; some functionality failed.
+WARNING - An unexpected event occurred, but the script keeps running.
+INFO - Confirmation that things are working as expected.
+DEBUG - Detailed debugging information.
+NOTSET - Indicates no explicit level.
+
+109. Testing
+Testing is the process of validating software functionality and ensuring it meets requirements.
+
+110. Unit Testing
+testing the individual units of code such as functions and methods independently
+
+arrange- Set up the test requirements, objects, data variables, and specific preconditions.
+act- Execute the targeted function, method, or unit under test with the arranged parameters.
+assert- Verify that the actual output exactly matches your expected outcome
+
+def test_calculate_bill_valid_discount():
+    # 1. ARRANGE
+    original_price = 100.0
+    discount_percentage = 0.15
+    expected_final_bill = 85.0
+    # 2. ACT
+    actual_result = original_price-discount_percentage
+    # 3. ASSERT
+    assert actual_result == expected_final_bill
+
+111. unittest - Built into the Python Standard Library.
+unittest is Python's standard framework used to create and execute automated test cases.
+
+112. pytest - Third-party package (pip install pytest)
+pytest is a testing framework that provides simple syntax and powerful features for writing automated test
 
 113. Mocking
 Mocking creates fake objects that simulate real objects during testing.
@@ -41,19 +127,17 @@ Example:Database replaced by fake database during tests.
 114. Monkey patching
 Monkey patching is the practice of dynamically modifying classes or functions during runtime.
 
-# 1. Define a class with an original method
-class Monkey:
+class Monkey:                   # 1. Define a class with an original method
     def behavior(self):
         return "Eating a banana"
-# 2. Define a new function with the desired behavior
-def patched_behavior(self):
-    return "Playing the drums!
-# 3. Apply the monkey patch at runtime
-Monkey.behavior = patched_behavior
 
-# 4. Test the modification
-m = Monkey()
-print(m.behavior())
+def patched_behavior(self):    # 2. Define a new function with the desired behavior
+    return "Playing the drums!
+
+Monkey.behavior = patched_behavior  # 3. Apply the monkey patch at runtime
+
+m = Monkey()            # 4. Test the modification
+print(m.behavior()) #"Playing the drums!"
 
 
 115. Serialization
