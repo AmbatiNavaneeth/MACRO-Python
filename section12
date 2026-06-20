@@ -168,10 +168,30 @@ Avoid unnecessary loops
 
 
 148. Caching (lru_cache)
+Caching stores previously computed results so repeated calculations become faster.
 
+from functools import lru_cache
+@lru_cache(maxsize=None)
+def factorial(n):
+    if n <= 1:
+        return 1
+    return n * factorial(n-1)
 
+149. Async Context Managers
+Async context managers manage asynchronous resources safely using async with.
+async with resource:
+    pass
 
+150. Python Security Best Practices ⭐
+Practices used to make Python applications secure.
+Python security best practices include validating user input, avoiding unsafe functions such as eval(), using parameterized database queries, protecting secrets, and keeping dependencies updated.
 
+Avoid eval()
+In Python, eval() is a built-in function that dynamically parses, compiles, and executes a string as a Python expression
+You must avoid it for security practices because it creates arbitrary code execution (ACE) vulnerabilities, allowing attackers to run malicious commands directly on your system
+
+Using Parameterized Queries
+query = f"SELECT * FROM users WHERE id={user_id}"
 
 
 
