@@ -77,6 +77,8 @@ project/
 
 math_utils is a package here
 
+In Python, a directory refers to a folder on your computer's filesystem used to organize, store, and group files and other subdirectories.
+
 26. How do you Import Modules?
 You import a module in Python by using the import keyword followed by the name of the module.
 example: import math
