@@ -1,0 +1,128 @@
+1. PDBC
+PDBC - stands for Python Database Connectivity
+-It is the standard methodology, architecture, and set of API rules that allow a Python application to a database management system (like MySQL, PostgreSQL, SQLite, or Oracle)
+-Instead of writing a different code structure for every database, Python uses a unified standard called the Python DB-API (PEP 249). 
+ This ensures that whether you switch from SQLite to MySQL, your core Python code remains identical
+
+To make PDBC work, you must use a database-specific driver or connector module:
+-MySQL:      mysql-connector-python or MySQLdb
+-PostgreSQL: psycopg2
+-Oracle:     oracledb (formerly cx_Oracle)
+-SQLite:     sqlite3 (built straight into Python)
+-ODBC Databases: pyodbc
+
+The Standard 7-Step Workflow
+Every PDBC program follows a predictable sequence to interact with a database permanently:
+
+1)Import the Driver Module: Bring the specific database connector into your code.
+2)Establish a Connection:   Use the .connect() function with host, user, and password credentials to open a pipeline.
+3)Create a Cursor Object:   Create a cursor via connection.cursor(), which acts as the pointer to execute commands.
+4)Execute SQL Queries:      Run CRUD (Create, Read, Update, Delete) commands using cursor.execute().
+5)Fetch Results:            Extract records using fetchone(), fetchmany(), or fetchall() (for SELECT statements).
+6)Commit Transactions:      Use connection.commit() to permanently save modifications (INSERT, UPDATE, DELETE).
+7)Close Resources:          Release system resources by closing the cursor and connection blocks
+
+How PDBC Works (The Standard Workflow)
+Every Python database connection follows the exact same six-step lifecycle:
+[Python Script] ──(1. Connect)──> [Database Driver] ──> [Database Engine]
+       │                                 │
+       ├──(2. Create Cursor)─────────────┤
+       ├──(3. Execute SQL Query)─────────┤
+       ├──(4. Fetch Results)─────────────┤
+       ├──(5. Commit Changes)────────────┤
+       └──(6. Close Connection)──────────┘
+
+
+
+PDBC implementation connecting to a MySQL server to fetch employee data safely using exception handling:
+----------------------------------------------------------------------------------------------------------
+import mysql.connector  # 1. Import the driver
+
+try:
+    # 2. Establish the connection pipeline
+    conn = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="your_password",
+        database="company_db"
+    )
+    
+    if conn.is_connected():
+        # 3. Create a cursor object
+        cursor = conn.cursor()
+        
+        # 4. Execute an SQL query
+        cursor.execute("SELECT id, name, role FROM employees")
+        
+        # 5. Fetch the results
+        records = cursor.fetchall()
+        for row in records:
+            print(f"ID: {row[0]}, Name: {row[1]}, Role: {row[2]}")
+            
+except mysql.connector.Error as err:
+    print(f"Database error occurred: {err}")
+    
+finally:
+    # 7. Always close resources safely in a finally block
+    if 'conn' in locals() and conn.is_connected():
+        cursor.close()
+        conn.close()
+        print("PDBC connection safely closed.")
+
+
+
+implementation using SQLite (Python's built-in connector)
+----------------------------------------------------------
+import sqlite3
+
+# 1. Connect to the database
+conn = sqlite3.connect('my_database.db')
+
+# 2. Create a cursor object
+cursor = conn.cursor()
+
+# 3. Execute a SQL command
+cursor.execute("CREATE TABLE IF NOT EXISTS users (id INT, name VARCHAR(50))")
+
+# 4. Insert data and commit
+cursor.execute("INSERT INTO users VALUES (1, 'Alice')")
+conn.commit()
+
+# 5. Fetch records
+cursor.execute("SELECT * FROM users")
+print(cursor.fetchall())
+
+# 6. Close the connection
+conn.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
