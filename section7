@@ -119,8 +119,30 @@ result=outer()
 result()
 
 #10
-
 yet outer finished but it is remembered by inner
+
+def outer():
+    x = 10
+    def inner():
+        print(f"Inner is running! x is: {x}")  
+    print("--- OUTER FUNCTION IS NOW REACHING RETURN AND EXITING ---")
+    return inner
+
+# Step 1: Call outer()
+result = outer()  
+print("Outer is dead. We are now back in the global scope.")
+# Step 2: Call inner() via result
+result()          
+Use code with caution.The Output Order Proves It:text--- OUTER FUNCTION IS NOW REACHING RETURN AND EXITING ---
+Outer is dead. We are now back in the global scope.
+Inner is running! x is: 10
+
+
+
+
+
+
+
 
 Task 7: Smart Resource Manager
 
