@@ -5,7 +5,7 @@ Concepts
 63. Magic methods
 64. __str__
 65. Shallow vs deep copy
-66. Metaclasses
+66. Metaclassess
 67. Iterators
 68. Custom iterator
 69. Context manager
