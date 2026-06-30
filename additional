@@ -96,19 +96,34 @@ print(cursor.fetchall())
 conn.close()
 
 
+2. TRY EXCEPT ELSE FNALLY
+In Python, the else block in a try...except statement runs only if no exceptions were raised in the try block. 
+It allows you to separate the code that might fail from the code that should only run if everything succeeds.Clear Code Examplepythontry:
+   
+ 
+    age = int(input("Enter your age: "))     # 1. This code is monitored for errors
+except ValueError:
+    print("That is not a valid number!")  # 2. This runs ONLY if a ValueError happens (e.g., user types "abc")
+else:
+    print(f"Success! You are {age} years old.")   # 3. This runs ONLY if the try block succeeds with zero errors
+finally:
+    print("Age check complete.")    # 4. This runs ALWAYS, no matter what happened above
 
 
+3.f.(name)(mode)(encoding)(closed)
+
+Attribute         Syntax                          What It Returns
+Name             f.name           Returns a string containing the exact file path used to open it.
+Mode             f.mode           Returns a string showing the current access mode ('r', 'w', etc.).
+Closed        f.closed           Returns a Boolean (True or False) indicating the file's current state.
+encoding       f.encoding         lets you inspect exactly which lookup table Python is applying
 
 
+4.f.tell() tells you where your file cursor is currently located.
+  f.seek() lets you move that cursor to a completely different spot in the file.
 
 
-
-
-
-
-
-
-
+5. r+ w+ a+
 
 
 
