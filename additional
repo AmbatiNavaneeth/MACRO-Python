@@ -147,9 +147,17 @@ Analyze Data
 Generate Report
 
 
+8. flush()
+The flush() method in Python is used to quickly send data from the computer's temporary storage, known as a buffer, to a file or the screen. 
+Normally, when you write something in Python, it doesn't get saved or shown right away. It stays in a buffer for a short time to make things faster.
 
-
-
+import time
+with open("gfg.txt", "w") as file:
+    file.write("First line\n") 
+    file.flush() # immediately write to disk
+    print("First line written and flushed.")
+    time.sleep(2)           
+    file.write("Second line\n")
 
 
 
