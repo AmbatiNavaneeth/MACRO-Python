@@ -1,6 +1,6 @@
 1. PDBC
 PDBC - stands for Python Database Connectivity
--It is the standard methodology, architecture, and set of API rules that allow a Python application to a database management system (like MySQL, PostgreSQL, SQLite, or Oracle)
+-It is the standard methodology, architecture, and set of API rules that allow a Python application to connect and interact [communicate] with database management systems (like MySQL, PostgreSQL, SQLite, or Oracle)
 -Instead of writing a different code structure for every database, Python uses a unified standard called the Python DB-API (PEP 249). 
  This ensures that whether you switch from SQLite to MySQL, your core Python code remains identical 
 
