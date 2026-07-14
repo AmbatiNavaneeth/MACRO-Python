@@ -192,6 +192,27 @@ print(ta.teach())       # From Teacher (Parent 1) -> "Teaching students..."
 print(ta.study())       # From Student (Parent 2) -> "Studying lessons..."
 print(ta.assist())      # From TeachingAssistant -> "Assisting grading..."
 
+REALTIME EXAMPLE
+Bike->Advbike
+
+class bike:
+    def __init__(self,brand,model):
+        self.brand=brand
+        self.model=model
+    def onroad(self,price):
+        print(f"{price} is the onroad price of the {self.brand}")
+    
+class advbike(bike):
+    def __init__(self,brand,model,topspeed):
+        super().__init__(brand,model)
+        self.topspeed=topspeed
+    def speed(self):
+        print(f"The top speed of my  {self.brand} is {self.topspeed}")
+
+obj=advbike("Xpulse",2021,126)
+obj.speed()
+
+
 56. Polymorphism - Polymorphism refers to the ability of code, data, or objects to take on multiple forms
 Polymorphism in Python is a core Object-Oriented Programming (OOP) concept that allows a single interface, function, or operator to behave differently depending on the object or data type it acts upon
 Polymorphism means "many forms" and allows the same method, function or operator to behave differently depending on the object or data it works with
