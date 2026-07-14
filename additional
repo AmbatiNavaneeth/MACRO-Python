@@ -70,30 +70,196 @@ finally:
         print("PDBC connection safely closed.")
 
 
+import mysql.connector
 
-implementation using SQLite (Python's built-in connector)
-----------------------------------------------------------
-import sqlite3
+con = None
+crsr = None
 
-# 1. Connect to the database
-conn = sqlite3.connect('my_database.db')
+con = mysql.connector.connect(
+    user='root',
+    password='root',
+    database='pdbc',
+    host='localhost'
+)
 
-# 2. Create a cursor object
-cursor = conn.cursor()
+crsr = con.cursor()
 
-# 3. Execute a SQL command
-cursor.execute("CREATE TABLE IF NOT EXISTS users (id INT, name VARCHAR(50))")
+def create_account():
+    name = input('Enter Your Name: ')
+    balance = int(input('Enter Initial Balance: '))
 
-# 4. Insert data and commit
-cursor.execute("INSERT INTO users VALUES (1, 'Alice')")
-conn.commit()
+    query = """
+                INSERT INTO ACCOUNTS(CUST_NAME,BALANCE) VALUES(%s,%s);
+            """
+    
+    crsr.execute(query,(name,balance))
+    con.commit()
+    print('Account Created Successfully!')
 
-# 5. Fetch records
-cursor.execute("SELECT * FROM users")
-print(cursor.fetchall())
+def deposit():
+    acc_no = int(input('Enter your account number: '))
+    amount = int(input('Enter your amount: '))
 
-# 6. Close the connection
-conn.close()
+    if amount > 0:
+        query = """
+                    UPDATE ACCOUNTS
+                    SET BALANCE = BALANCE + %s
+                    WHERE ACC_NO = %s;
+                """
+        crsr.execute(query,(amount,acc_no))
+        con.commit()
+        print('Amount Credited Successfully!')
+    else:
+        print('Invalid Amount!')
+
+def withdraw():
+    acc_no = int(input('Enter your account number: '))
+    amount = int(input('Enter your amount: '))
+
+    query1 = """
+                SELECT BALANCE
+                FROM ACCOUNTS
+                WHERE ACC_NO = %s;
+             """
+    crsr.execute(query1,(acc_no,)) # (5000,) // None
+    res = crsr.fetchone()
+
+    if res != None:
+        balance = res[0]
+        if balance >= amount:
+            query2 = """
+                        UPDATE ACCOUNTS
+                        SET BALANCE = BALANCE - %s
+                        WHERE ACC_NO = %s;
+                     """
+            crsr.execute(query2,(amount,acc_no))
+            con.commit()
+            print('Amount Debited Successfully!')
+        else:
+            print('Insufficient Balance!')
+    else:
+        print('Account Not Found!')
+
+def check_balance():
+    acc_no = int(input('Enter your account number: '))
+    
+    query = """
+                SELECT * FROM 
+                ACCOUNTS 
+                WHERE ACC_NO = %s;
+            """
+    
+    crsr.execute(query,(acc_no,))
+    res = crsr.fetchone()
+
+    if res != None: # (3,Ramesh,4500)
+        print('-------- Account Details -------')
+        print('Account Number:',res[0])
+        print('Account Holder Name:',res[1])
+        print('Account Balance:',res[2])
+        print('--------------------------------')
+    else:
+        print('Account Not Found!')
+
+def transfer_money():
+    sender = int(input('Enter sender account number: '))
+    receiver = int(input('Enter receiver account number: '))
+    amount = int(input('Enter Amount: '))
+
+    query = """
+                SELECT BALANCE 
+                FROM ACCOUNTS
+                WHERE ACC_NO = %s;
+            """
+    crsr.execute(query,(sender,)) # (4500,) // None
+    res = crsr.fetchone()
+    if res != None:
+        balance = res[0]
+        if balance >= amount:
+            try:
+                query1 = """
+                            UPDATE ACCOUNTS
+                            SET BALANCE = BALANCE - %s
+                            WHERE ACC_NO = %s;
+                         """
+                crsr.execute(query1,(amount,sender))
+                
+                query2 = """
+                            UPDATE ACCOUNTS
+                            SET BALANCE = BALANCE + %s
+                            WHERE ACC_NO = %s;
+                         """
+                crsr.execute(query2,(amount,receiver))
+                con.commit()
+                print('Amount Transfered Successfully!')
+            except Exception as e:
+                print(e)
+                con.rollback()
+                print('Trandaction Failed!')
+
+        else:
+            print('Insufficient Balance!')
+    else:
+        print('Account Not Found!')
+
+def delete_account():
+    acc_no = int(input('Enter your account number: '))
+
+    query = """
+                DELETE FROM
+                ACCOUNTS
+                WHERE ACC_NO = %s;
+            """
+    crsr.execute(query,(acc_no,))
+    if crsr.rowcount == 1:
+        con.commit()
+        print('Account Deleted Successfully!')
+    else:
+        print('Account Not Found!')
+
+def view_all_accounts():
+    query = "SELECT * FROM ACCOUNTS;"
+    crsr.execute(query)
+    rows = crsr.fetchall()
+
+    print('<-------- All Account Details -------->')
+    for row in rows:
+        print('\nAccount Number:',row[0])
+        print('Account Holder Name:',row[1])
+        print('Account Balance:',row[2])
+        print('---------------------------------')
+
+print('<======== WELCOME TO BANK MANAGEMENT SYSTEM ========>')
+
+while True:
+    print('\n1. SELECT TO CREATE ACCOUNT')
+    print('2. SELECT TO DEPOSIT AMOUNT')
+    print('3. SELECT TO WITHDRAW AMOUNT')
+    print('4. SELECT TO CHECK BALANCE')
+    print('5. SELECT TO TRANSFER AMOUNT')
+    print('6. SELECT TO DELETE ACCOUNT')
+    print('7. SELECT TO VIEW ALL ACCOUNTS')
+    print('8. SELECT TO EXIT FROM THE APP!')
+
+    choice = int(input('Enter your choice: '))
+
+    match choice:
+        case 1: create_account()
+        case 2: deposit()
+        case 3: withdraw()
+        case 4: check_balance()
+        case 5: transfer_money()
+        case 6: delete_account()
+        case 7: view_all_accounts()
+        case 8:
+            print('THANK YOU, VISIT AGAIN..!')
+            if crsr != None:
+                crsr.close()
+            if con != None:
+                con.close()
+            break
+        case _: print('Invalid choice, Try again..!')
+
 
 
 2. TRY EXCEPT ELSE FNALLY
