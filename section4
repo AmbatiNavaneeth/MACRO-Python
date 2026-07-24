@@ -104,6 +104,14 @@ def greet():
     print("Hello, World!")
 greet()
 
+without useing @decorator 
+def greet():
+    print("hello")
+# MANUAL DECORATION (Instead of using @deco)
+greet = deco(greet)
+greet()
+
+
 output:
 Before calling the function.
 Hello, World!
@@ -168,9 +176,10 @@ def analyze_file(filename):
     print("Line Count :", line_count)
     print("Word Count :", total_words)
 
-
 analyze_file("sample.txt")
 
+
+the @log time is decorator wrapping the wrapper function
 
 
 
