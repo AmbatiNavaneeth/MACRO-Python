@@ -48,6 +48,7 @@ print(local_msg)      # ERROR: NameError: name 'local_msg' is not defined
 
 45. global keyword
 The global keyword allows a function to modify a global variable instead of creating a local variable with the same name.
+Also we can make the changes of global variable inside the func
 count = 10
 def update():
     global count
