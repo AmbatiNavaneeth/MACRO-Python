@@ -180,8 +180,7 @@ analyze_file("sample.txt")
 
 
 the @log time is decorator wrapping the wrapper function
-
-
+https://www.google.com/search?q=explain+the+code+def+factorial%28n%29%3A+if+n+%3D%3D+1%3A+return+1+return+n+*+factorial%28n+-+1%29+n%3D5+print%28factorial%28n%29%29&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRiPAtIBCDI4MDdqMGo3qAIIsAIB8QWlfm1A9f89rQ&sourceid=chrome&ie=UTF-8&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cxpBkeIeqYwoCbfNVc4vKE4f6ZJqUzPbNrAmWktdS6nG82-1N4OXO01WJkKgjHAhRM_dMav_8Br6WMThXVL1XzUk_7SECJV4Sz2tJuEKugnIdFG8aJ4q2zXeeAqs44FvZOTFPhaEP9AFbXLdKBA2SJvk9zhN89Elt7_82QLbdKUU9lWImPPrNRqQSyGJCk426O6m0Rg&aep=10&ntc=1&mstk=AUtExfBJsmRNjJB3eiq3S496qoWJU_g7hH_nWR3m8TC2spDXR0wkU96qVpAeG01svhutiFSco5arpL7d954yzWaieo6jCVAON4jaow_ZBymH4ww7B7BV31Aw7auPPvXfkjDcw-caV_bX4NYYNd4E_fUVKIRJiAZxHQ_Yai-3SmHbGx4iOwXKwHnc1l9xKDRFvk-0qzQH-5O5iPuvy1B6Qg9My943fmZIIg4cnmWFJv5JEO93qd17VR4OYqN4UZvJHFUQomOLzgcMNZDNju0QbfK43UWxQ34CFFkWw_Q3oqCsmFW2frh8rX5FgHrl46vTUsdgqHm_SzENXr_wZg&aioh=3&csuir=1&cs=1&mtid=zhZjauKmOKuZseMPnuHC2Ac&udm=50
 
 
 
