@@ -28,8 +28,8 @@ except - handles if any error occur in try block
 finally - this block willl be executed anyways
 
 compiletime vs runtime
-compile time is when human-readable source code is translated into machine-readable code - runtime errors During source code compilation.
-while runtime is when that translated code is actively executed by a computer - compile errors During program execution.
+compile time is when human-readable source code is translated into machine-readable code - compile errors During source code compilation.
+while runtime is when that translated code is actively executed by a computer - runtime errors During program execution.
 example:-
 Think of compile time as baking a cake using a recipe (checking for missing ingredients), and 
 runtime as eating the cake (finding out it tastes bad because you accidentally used salt instead of sugar).
@@ -58,13 +58,20 @@ Closing files - Closing database connections - Releasing resources
 24. What is a Module?
 A module is simply a Python file containing functions, variables, and classes that can be reused.
 Example file:
-# calculator.py
-def add(a, b):
-    return a + b
-    
-Use it:
-import calculator
-print(calculator.add(10, 20))
+in mymodule.py
+pi=3.14
+def add(a,b):
+    return a+b
+def mul(a,b):
+    return a*b   
+
+in main.py
+import mymodule
+res=mymodule.add(4,5)
+print(res)         
+
+in terminal python main.py
+9
 
 25. What is a Package?
 A package is a directory containing multiple modules that helps organize Python code.
