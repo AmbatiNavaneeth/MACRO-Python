@@ -90,6 +90,20 @@ def factorial(n):
         return 1
     return n * factorial(n - 1)
 
+Phase 1: Going Down (The Breakdown)
+Step 1: Evaluating factorial(5)Inside the function, n is 5.Is 5 == 1? No.The code reaches: return 5 * factorial(4)The computer pauses here. It must find factorial(4). It opens a new step.
+Step 2: Evaluating factorial(4)Inside the function, n is 4.Is 4 == 1? No.The code reaches: return 4 * factorial(3)The computer pauses. It must find factorial(3).
+Step 3: Evaluating factorial(3)Inside the function, n is 3.Is 3 == 1? No.The code reaches: return 3 * factorial(2)The computer pauses. It must find factorial(2).
+Step 4: Evaluating factorial(2)Inside the function, n is 2.Is 2 == 1? No.The code reaches: return 2 * factorial(1)The computer pauses. It must find factorial(1).
+Step 5: Evaluating factorial(1)Inside the function, n is 1.Is 1 == 1?
+Yes!The code triggers the base case: return 1This specific step finishes immediately and hands the number 1 back to Step 4.
+
+Phase 2: Going Up (The Math Unwinds)Now, the computer goes backward through the paused steps, filling in the answers:
+Step 4 finishes: It was waiting on 2 * factorial(1).Since factorial(1) gave us 1, it calculates 2 * 1.It returns 2 back to 
+Step 3.Step 3 finishes: It was waiting on 3 * factorial(2).Since factorial(2) gave us 2, it calculates 3 * 2.It returns 6 back to 
+Step 2.Step 2 finishes: It was waiting on 4 * factorial(3).Since factorial(3) gave us 6, it calculates 4 * 6.It returns 24 back to
+Step 1.Step 1 finishes: It was waiting on 5 * factorial(4).Since factorial(4) gave us 24, it calculates 5 * 24.It returns 120.
+
 
 
 Task 2: Flexible Calculator
