@@ -260,7 +260,27 @@ my_cat.make_sound()  # Outputs: Meow! (Not the generic sound)
 60. @staticmethod vs @classmethod
 
 
+61. Duck typing
+Duck typing is a Python concept where Python cares about what an object can do, rather than what type/class it is.
+class Dog:
+    def sound(self):
+        print("Bark")
 
+
+class Cat:
+    def sound(self):
+        print("Meow")
+
+
+def make_sound(animal):
+    animal.sound()
+
+
+d = Dog()
+c = Cat()
+
+make_sound(d)
+make_sound(c)
 
 Task 6: Mini Banking System
 Objective: Build a basic banking system using OOP.
