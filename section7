@@ -51,6 +51,26 @@ print(my_book)  # Output: '1984' by George Orwell
 Shallow copy copies only the outer object and shares nested objects. if we make changes to copy one the original one also has changes 
 Deep copy creates completely independent copies of all nested objects. if we make changes to copied one that changes will not reflected on original one 
 
+import copy
+
+# 1. Your original list with the nested inner list
+original_list = [1, 2, ["A", "B"]]
+
+# 2. Creating both copies from the exact same starting point
+shallow_copied_list = copy.copy(original_list)
+deep_copied_list = copy.deepcopy(original_list)
+
+# 3. Modify the inner nested list on the shallow copy
+shallow_copied_list[2][0] = "Z"
+
+# 4. Modify the inner nested list on the deep copy
+deep_copied_list[2][1] = "Y"
+
+# 5. Print everything to see what happened
+print("Original List:    ", original_list)
+print("Shallow Copy List:", shallow_copied_list)
+print("Deep Copy List:   ", deep_copied_list)
+
 66. Metaclasses
 A metaclass is a class that creates other classes. In Python, type is the default metaclass.
 Object is created from Class
