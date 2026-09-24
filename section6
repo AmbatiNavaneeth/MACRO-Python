@@ -217,11 +217,8 @@ obj.speed()
 Polymorphism in Python is a core Object-Oriented Programming (OOP) concept that allows a single interface, function, or operator to behave differently depending on the object or data type it acts upon
 Polymorphism means "many forms" and allows the same method, function or operator to behave differently depending on the object or data it works with
 
-Compile-Time Polymorphism and Runtime Polymorphism :-
+Compile-Time Polymorphism(method overloading) and Runtime Polymorphism(method overriding) :-
 Both allow the same method name to be used for different tasks, but they execute at different times during program execution
-
-
-
 
 57. Encapsulation?
 Encapsulation is the binding of data and methods that manipulate them into a single unit such that the sensitive data is hidden from the users
@@ -258,7 +255,8 @@ my_cat.make_sound()  # Outputs: Meow! (Not the generic sound)
 
 
 60. @staticmethod vs @classmethod
-
+@classmethod receives the class itself as its first argument (usually named cls). It can modify or access class-level state.
+@staticmethod receives no implicit first argument (neither self nor cls). It behaves exactly like a regular function, but lives inside the class's namespace for organization.
 
 61. Duck typing
 Duck typing is a Python concept where Python cares about what an object can do, rather than what type/class it is.
@@ -266,19 +264,15 @@ class Dog:
     def sound(self):
         print("Bark")
 
-
 class Cat:
     def sound(self):
         print("Meow")
 
-
 def make_sound(animal):
     animal.sound()
 
-
 d = Dog()
 c = Cat()
-
 make_sound(d)
 make_sound(c)
 
