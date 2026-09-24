@@ -66,6 +66,10 @@ Output:
 1
 2
 
+How yield works differently than return:
+return is final. It packs up all the data, hands it over, and completely destroys the function's state.
+yield is like a pause button. It hands over exactly one line of text to whoever asked for it, and then the function "freezes" right where it is, waiting to be asked for the next line.
+
 Iterator
 Iterators are used to iterate through cpllections like list,tupples,strings in a sequential access one at a time
 nums=[1,2,3,4] - iterable
