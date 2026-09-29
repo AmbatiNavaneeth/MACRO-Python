@@ -87,6 +87,12 @@ breakpoint()
 108. Logging Levels
 using the logging module which provides standard severity levels to categorize and filter log messages based on their urgency.
 
+import logging
+logging.warning("Database connection is slow")
+Here:
+WARNING → logging level
+"Database connection is slow" → log message =>Log message = information recorded by a program about an event or activity.
+ 
 CRITICAL - A critical failure; the program may crash.
 ERROR - A major problem occurred; some functionality failed.
 WARNING - An unexpected event occurred, but the script keeps running.
