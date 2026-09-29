@@ -326,7 +326,70 @@ with open("gfg.txt", "w") as file:
     file.write("Second line\n")
 
 
+# get_users()
+# get_products()
+# get_orders()
+import asyncio
 
+async def get_users():
+  print("get user details...")
+  await asyncio.sleep(3)
+  return ["shankar","savarakar",'avinash']
+
+async def get_products():
+  print("get product details....")
+  await asyncio.sleep(2)
+  return ["blood",'poems','gun']
+
+async def get_orders():
+  print("get order details...")
+  await asyncio.sleep(4)
+  return [101,102,103]
+
+# async def main():
+#   users=await get_users()
+#   products=await get_products()
+#   orders=await get_orders()
+
+#   print(users)
+#   print(products)
+#   print(orders)
+  
+# asyncio.run(main())
+
+#using gather
+# async def main():
+
+#     users, products, orders = await asyncio.gather(
+#         get_users(),
+#         get_products(),
+#         get_orders()
+#     )
+
+#     print(users)
+#     print(products)
+#     print(orders)
+
+
+# asyncio.run(main())
+
+#using create_task
+async def main():
+
+    users_task = asyncio.create_task(get_users())
+    products_task = asyncio.create_task(get_products())
+    orders_task = asyncio.create_task(get_orders())
+
+    users = await users_task
+    products = await products_task
+    orders = await orders_task
+
+    print(users)
+    print(products)
+    print(orders)
+
+
+asyncio.run(main())
 
 
 
